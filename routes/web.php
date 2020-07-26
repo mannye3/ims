@@ -59,7 +59,7 @@ Route::get('/signin', function () {
 
 
     /**** USERS ****/
-Route::get('/users', 'User\UserController@index')->name('users');
+Route::resource('/users', 'User\UserController');
 
     /**** SHOP ****/
 Route::resource('/shops', 'Shop\ShopController');
