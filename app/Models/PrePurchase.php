@@ -4,10 +4,9 @@ namespace App\Models;
 
 use App\Models\Shop;
 use App\Models\Stock;
-use App\Models\TempOrder;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class PrePurchase extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,18 +14,17 @@ class Stock extends Model
      * @var array
      */
     protected $fillable = [
-        'shop_id', 'quantity', 'name', 'price'
+        'shop_id', 'stock_id', 'product_code', 'quantity', 'unit_cost', 'cost_amount'
     ];
 
-
     /** Relationship 8*/
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
+
     public function shop()
     {
         return $this->belongsTo(Shop::class);
-    }
-
-    public function tempStock()
-    {
-        return $this->hasMany(TempOrder::class);
     }
 }

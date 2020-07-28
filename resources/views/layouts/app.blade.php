@@ -28,6 +28,8 @@
     <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <!-- End css -->
+
+    @livewireStyles
 </head>
 <body class="vertical-layout"> 
     
@@ -68,11 +70,12 @@
     <script src="{{ asset('assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom/custom-table-datatable.js') }}"></script>
     <!-- eCommerce Order Detail Page js -->
-    <script src="assets/js/custom/custom-ecommerce-order-detail-page.js"></script>
+    <script src="{{ asset('assets/js/custom/custom-ecommerce-order-detail-page.js') }}"></script>
 
     <!-- Core js -->
     <script src="{{ asset('assets/js/core.js') }}"></script>
     <!-- End js -->
+    @livewireScripts
 </body>
 
 </html>

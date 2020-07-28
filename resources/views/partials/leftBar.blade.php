@@ -45,9 +45,10 @@
 
                 <li>
                     <a href="javaScript:void();">
-                      <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Stock</span><i class="feather icon-chevron-right pull-right"></i>
+                      <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Stocks Management</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
+                        <li><a href="/stocks">Category</a></li>
                         <li><a href="/stocks">Items</a></li>
                         {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
                         <li><a href="dashboard-hospital.html">Hospital</a></li>

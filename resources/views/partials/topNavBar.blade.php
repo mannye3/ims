@@ -8,8 +8,8 @@
                                 <li class="list-inline-item">
                                     <div class="menubar">
                                         <a class="menu-hamburger" href="javascript:void();">
-                                           <img src="assets/images/svg-icon/collapse.svg" class="img-fluid menu-hamburger-collapse" alt="collapse">
-                                           <img src="assets/images/svg-icon/close.svg" class="img-fluid menu-hamburger-close" alt="close">
+                                           <img src="{{ asset('assets/images/svg-icon/collapse.svg') }}" class="img-fluid menu-hamburger-collapse" alt="collapse">
+                                           <img src="{{ asset('assets/images/svg-icon/close.svg') }}" class="img-fluid menu-hamburger-close" alt="close">
                                          </a>
                                      </div>
                                 </li>
@@ -23,14 +23,14 @@
                                 <li class="list-inline-item">
                                     <div class="settingbar">
                                         <a href="javascript:void(0)" id="infobar-settings-open" class="infobar-icon">
-                                            <img src="assets/images/svg-icon/settings.svg" class="img-fluid" alt="settings">
+                                            <img src="{{ asset('assets/images/svg-icon/settings.svg') }}" class="img-fluid" alt="settings">
                                         </a>
                                     </div>
                                 </li>
                                 <li class="list-inline-item">
                                     <div class="notifybar">
                                         <div class="dropdown">
-                                            <a class="dropdown-toggle infobar-icon" href="#" role="button" id="notoficationlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/svg-icon/notifications.svg" class="img-fluid" alt="notifications">
+                                            <a class="dropdown-toggle infobar-icon" href="#" role="button" id="notoficationlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('assets/images/svg-icon/notifications.svg') }}" class="img-fluid" alt="notifications">
                                             <span class="live-icon"></span></a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notoficationlink">
                                                 <div class="notification-dropdown-title">
@@ -73,7 +73,7 @@
                                 <li class="list-inline-item">
                                     <div class="profilebar">
                                         <div class="dropdown">
-                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
+                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('assets/images/users/profile.svg') }}" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                                 <div class="dropdown-item">
                                                     <div class="profilename">
@@ -83,10 +83,10 @@
                                                 <div class="userbox">
                                                     <ul class="list-unstyled mb-0">
                                                         <li class="media dropdown-item">
-                                                            <a href="#" class="profile-icon"><img src="assets/images/svg-icon/user.svg" class="img-fluid" alt="user">My Profile</a>
+                                                            <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/user.svg') }}" class="img-fluid" alt="user">My Profile</a>
                                                         </li>
                                                         <li class="media dropdown-item">
-                                                            <a href="#" class="profile-icon"><img src="assets/images/svg-icon/email.svg" class="img-fluid" alt="email">Email</a>
+                                                            <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">Email</a>
                                                         </li>                                                        
                                                         <li class="media dropdown-item">
                                                             <a href="{{ route('logout') }}" class="profile-icon" onclick="event.preventDefault();

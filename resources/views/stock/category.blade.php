@@ -132,22 +132,18 @@
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Shop</th>
                                             <th>Name</th>
                                             <th>Quantity</th>
-                                            <th>Unit Price</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        @foreach ($allStock as $stock)
+                                        @foreach ($categories as $category)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $stock->shop->name }}</td>
-                                                <td>{{ $stock->name }}</td>
-                                                <td>{{ $stock->quantity }}</td>
-                                                <td>₦{{ $stock->price }}</td>
+                                                <td>{{ $category->name }}</td>
+                                                <td>{{ $category->name }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button>
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
@@ -155,9 +151,9 @@
                                             </tr>
 
 
-                                            @include('stock.partials.edit_stock', [$stock, $shops])
+                                            @include('stock.partials.edit_category')
 
-                                            @include('stock.partials.delete_stock', $stock)
+                                            @include('stock.partials.delete_category')
 
 
                                         @endforeach
