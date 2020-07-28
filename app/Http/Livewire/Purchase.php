@@ -32,7 +32,7 @@ class Purchase extends Component
     public function render()
     {
         // Get Shop
-        // $shops = Shop::all();
+        $shops = Shop::all();
 
         // Get Stock
         $stocks = Stock::all();
