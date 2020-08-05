@@ -18,7 +18,7 @@ class Sale extends Model
     /** Relationship 8*/
     public function stocks()
     {
-        return $this->hasMany(Stock::class);
+        return $this->hasMany(Stock::class, 'stock_id');
     }
 
     public function shop()

@@ -359,58 +359,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($lowStock as $item)
+
                                             <tr>
                                                 <td>1</td>
                                                 <td>John Doe</td>
                                                 <td>5</td>
                                                 <td>99</td>
                                                 <td>
-                                                    <span class="badge badge-primary-inverse py-2 px-3 font-12">MATHEMATICS</span>
+                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">MATHEMATICS</span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jimmy Simpson</td>
-                                                <td>5</td>
-                                                <td>98</td>
-                                                <td>
-                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">Empty</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lorea Johnson</td>
-                                                <td>5</td>
-                                                <td>45</td>
-                                                <td>
-                                                    <span class="badge badge-success-inverse py-2 px-3 font-12">MATHEMATICS</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Merry Aniston</td>
-                                                <td>5</td>
-                                                <td>96</td>
-                                                <td>
-                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">Empty</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Jessica Perry</td>
-                                                <td>5</td>
-                                                <td>95</td>
-                                                <td>
-                                                    <span class="badge badge-primary-inverse py-2 px-3 font-12">MATHEMATICS</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Maria Salkova</td>
-                                                <td>5</td>
-                                                <td>94</td>
-                                                <td><span class="badge badge-primary-inverse py-2 px-3 font-12">MATHEMATICS</span></td>
-                                            </tr>                                            
+                                                
+                                            @endforeach
+                                                                                       
                                         </tbody>
                                     </table>
                                 </div>

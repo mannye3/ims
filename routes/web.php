@@ -83,6 +83,7 @@ Route::get('/sales', 'Sales\SaleController@index');
 Route::get('/sales/create', 'Sales\SaleController@create');
 Route::post('/sales/add', 'Sales\SaleController@store');
 Route::post('/process/sales', 'Sales\SaleController@processSales');
+Route::get('/sales/details/{reference}', 'Sales\SaleController@SalesDetail');
 Route::post('/sales/update/price/{id}', 'Sales\SaleController@SalesPriceUpdate');
 Route::post('/sales/reset', 'Sales\SaleController@ResetSales');
 Route::delete('/sales/reset', 'Sales\SaleController@resetSales')->name('Sales.clear');

@@ -28,10 +28,12 @@ class HomeController extends Controller
         $stockValue = Stock::all()->pluck('price')->sum();
         $stockQuantity = Stock::all()->pluck('quantity')->sum();
 
+        $lowStock = Stock::where('quantity', '<', 2)->get();
+
         // Users
         $staffs = User::all()->count();
         
 
-        return view('welcome', compact('stockValue', 'stockQuantity', 'staffs'));
+        return view('welcome', compact('stockValue', 'stockQuantity', 'staffs', 'lowStock'));
     }
 }

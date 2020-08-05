@@ -6,6 +6,7 @@ use App\Models\Sale;
 use App\Models\Shop;
 use App\Models\Stock;
 use App\Models\PreSale;
+use App\Models\SaleBatch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +19,9 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('sales.sales');
+        $sales = SaleBatch::all();
+
+        return view('sales.sales', compact('sales'));
     }
 
     /**
@@ -30,7 +33,7 @@ class SaleController extends Controller
     {
         // Get Shop
         $shops = Shop::all();
-        $stocks = Stock::all();
+        $stocks = Stock::where('quantity', '>', 0)->get();
         $orders = PreSale::where('user_id', auth()->user()->id)->get();
 
         $totalCost = 0;
@@ -66,6 +69,19 @@ class SaleController extends Controller
         $salesOrder->update(['price' => $request->newPrice]);
 
         return redirect()->back();
+    }
+
+
+    /**
+     * Purchase details.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function SalesDetail($reference)
+    {
+        $sales = Sale::where('reference_no', $reference)->get();
+
+        return view('sales.sales_detail', compact('sales'));
     }
 
 
