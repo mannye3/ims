@@ -160,48 +160,30 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
+                                            <th>#</th>
+                                            <th>Reference</th>
+                                            <th>Quantity</th>
+                                            <th>Total Cost</th>
+                                            <th>Amount Paid</th>
                                             <th>Salary</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>
-                                                <a href="/purchase/details" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
-                                                <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>
-                                                <a href="/purchase/details" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
-                                                <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>
-                                                <a href="/purchase/details" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
-                                                <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
-                                            </td>
-                                        </tr>
+
+                                            @foreach ($purchases as $purchase)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $purchase->reference_no }}</td>
+                                                <td>{{ $purchase->payment_method }}</td>
+                                                <td>{{ $purchase->total_cost }}</td>
+                                                <td>{{ $purchase->amount_paid }}</td>
+                                                <td>
+                                                    <a href="/purchase/details/{{ $purchase->reference_no }}" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
+                                                    <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

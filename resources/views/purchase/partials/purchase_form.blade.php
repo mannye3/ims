@@ -48,8 +48,8 @@
                     </div>                                
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent='addProduct'>
-
+                    <form action="/process/purchase" method="POST">
+                        @csrf
                         {{-- <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Shop:</label>
                             <select style="border-color:#9794af;" wire:model="shop" type="text" class="form-control">
@@ -74,7 +74,7 @@
 
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Product:</label>
-                            <select style="border-color:#9794af;" wire:model="stock_id" type="text" class="form-control" id="recipient-name">
+                            <select style="border-color:#9794af;" name="stock_id" wire:model="stock_id" type="text" class="form-control" id="recipient-name">
                                 <option>-- Select Shop --</option>
                                 @foreach ($stocks as $stock)
                                     <option value="{{ $stock->id }}">{{ $stock->name }}</option>
@@ -84,10 +84,10 @@
 
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Quantity:</label>
-                            <input style="border-color:#9794af;" type="number" class="form-control" wire:model="quantity">
+                            <input style="border-color:#9794af;" type="number" class="form-control" name="quantity" wire:model="quantity">
                         </div>
 
-                        <input type="" wire:model.lazy="orderReference">
+                        {{-- <input type="" name="orderReference    " value="{{ Session::get('orderReference') }}"> --}}
                         
 
                         <div class="form-group">
@@ -161,17 +161,24 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="#" class="text-danger"><i class="feather icon-trash"></i></a></td>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <a href="#" class="text-danger"><i class="feather icon-trash"></i></a>
+                                        </td>
                                         <td>{{ $order->stock->name }}</td>
                                         <td>
                                             {{ $order->quantity }}
                                         </td>
                                         <td>
-                                            {{ $order->stock->price }}
+                                            ₦{{ number_format($order->price) }}
+                                            <a href="#" class="text-success"><i class="feather icon-edit-2" data-toggle="modal" data-target="#purchase_price{{ $order->id }}" data-whatever="@fat"></i></a>
+
                                         </td>
-                                        <td class="text-right">₦{{ $order->stock->price * $order->quantity }}</td>
+                                        <td class="text-right">₦{{ number_format($order->price * $order->quantity) }}</td>
                                     </tr>
+
+                                    @include('purchase.partials.price_modal');
+
                                 @endforeach
                             </tbody>
                         </table>
@@ -189,13 +196,13 @@
                             <div class="order-total table-responsive ">
                                 <table class="table table-borderless text-right">
                                     <tbody>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>Sub Total :</td>
                                             <td>$1000.00</td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr>
-                                            <td class="text-black f-w-7 font-18">Amount :</td>
-                                            <td class="text-black f-w-7 font-18">$1180.00</td>
+                                            <td class="text-black f-w-7 font-18">Total :</td>
+                                            <td class="text-black f-w-7 font-18">₦{{ number_format($totalCost) }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -204,11 +211,14 @@
                     </div>
                 </div>
                 <div class="card-footer text-right">
-                    <form wire:submit.prevent='store'>
-                        <button type="button" class="btn btn-success-rgba my-1"><i class="feather icon-repeat mr-2"></i>Refund</button>
-                        <button type="button" wire:click='removeOrder' class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Cancel</button>
-                    </form>
+                        <button type="button" class="btn btn-success-rgba my-1" data-toggle="modal" data-target="#save-purchase" data-whatever="@fat"><i class="feather icon-repeat mr-2" ></i>Save</button>
+                        <button type="button" class="btn btn-danger-rgba my-1" data-toggle="modal" data-target="#reset-modal" data-whatever="@fat"><i class="feather icon-trash mr-2"></i>Cancel</button>
                 </div>
+
+                {{-- Modals --}}
+                @include('purchase.partials.reset_purchase');
+                @include('purchase.partials.save_purchase');
+
             </div>                  
         </div>
         <!-- End col -->

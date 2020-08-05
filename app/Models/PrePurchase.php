@@ -13,14 +13,12 @@ class PrePurchase extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'shop_id', 'stock_id', 'product_code', 'quantity', 'unit_cost', 'cost_amount'
-    ];
+    protected $guarded = [];
 
-    /** Relationship 8*/
-    public function stocks()
+    /** Relationship */
+    public function stock()
     {
-        return $this->hasMany(Stock::class);
+        return $this->belongsTo(Stock::class);
     }
 
     public function shop()

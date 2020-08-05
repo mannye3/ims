@@ -6,7 +6,7 @@ use App\Models\Shop;
 use App\Models\Stock;
 use Illuminate\Database\Eloquent\Model;
 
-class Purchase extends Model
+class SaleBatch extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -18,7 +18,7 @@ class Purchase extends Model
     /** Relationship 8*/
     public function stocks()
     {
-        return $this->belongsTo(Stock::class, 'stock_id');
+        return $this->hasMany(Stock::class);
     }
 
     public function shop()

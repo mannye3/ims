@@ -6,7 +6,7 @@ use App\Models\Shop;
 use App\Models\Stock;
 use Illuminate\Database\Eloquent\Model;
 
-class Purchase extends Model
+class PreSale extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,10 +15,10 @@ class Purchase extends Model
      */
     protected $guarded = [];
 
-    /** Relationship 8*/
-    public function stocks()
+    /** Relationship */
+    public function stock()
     {
-        return $this->belongsTo(Stock::class, 'stock_id');
+        return $this->belongsTo(Stock::class);
     }
 
     public function shop()

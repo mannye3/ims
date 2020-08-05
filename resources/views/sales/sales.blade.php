@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
-                            <button class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Actions</button>
+                            <a href="/sales/create" class="btn btn-success-rgba"><i class="feather icon-plus mr-2"></i>Add New</a>
                         </div>                        
                     </div>
                 </div>          

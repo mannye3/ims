@@ -25,8 +25,8 @@ class Stock extends Model
         return $this->belongsTo(Shop::class);
     }
 
-    public function tempStock()
+    public function purchase()
     {
-        return $this->hasMany(TempOrder::class);
+        return $this->hasMany(Purchase::class);
     }
 }

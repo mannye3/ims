@@ -19,8 +19,10 @@ class CreatePurchasesTable extends Migration
             $table->integer('quantity');
             $table->integer('stock_id');
             $table->string('product_code')->nullable();
-            $table->string('unit_cost');
-            $table->string('cost_amount');
+            $table->string('price');
+            $table->integer('supplier')->nullable();
+            $table->string('reference_no');
+            $table->string('payment_method');
             $table->timestamps();
         });
     }

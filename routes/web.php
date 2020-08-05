@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +28,17 @@
 
 
 ///////////////////
-
+Route::get('add/user', function() {
+    User::create([
+        'firstname' => 'john',
+        'lastname' => 'doe',
+        'phone' => '0909248385385',
+        'email' => 'john@mail.com',
+        'role' => 'user',
+        'password' => Hash::make('secret12')
+    ]);
+    return 'User create';
+});
 
 Auth::routes();
 Route::get('/', 'Auth\LoginController@showLoginForm');
@@ -67,14 +80,21 @@ Route::resource('/shops', 'Shop\ShopController');
 
     /**** SALES ****/
 Route::get('/sales', 'Sales\SaleController@index');
-Route::get('/sales/add', 'Sales\SaleController@create');
+Route::get('/sales/create', 'Sales\SaleController@create');
 Route::post('/sales/add', 'Sales\SaleController@store');
+Route::post('/process/sales', 'Sales\SaleController@processSales');
+Route::post('/sales/update/price/{id}', 'Sales\SaleController@SalesPriceUpdate');
+Route::post('/sales/reset', 'Sales\SaleController@ResetSales');
+Route::delete('/sales/reset', 'Sales\SaleController@resetSales')->name('Sales.clear');
 
     /**** PURCHASE ****/
 Route::get('/purchase', 'Purchase\PurchaseController@index')->name('purchase.list');
-Route::get('/purchase/details', 'Purchase\PurchaseController@purchaseDetails')->name('purchase.details');
+Route::get('/purchase/details/{reference}', 'Purchase\PurchaseController@purchaseDetails')->name('purchase.details');
 Route::get('/purchase/create', 'Purchase\PurchaseController@create')->name('purchase.create');
 Route::post('/purchase/add', 'Purchase\PurchaseController@store')->name('purchase.store');
+Route::post('/process/purchase', 'Purchase\PurchaseController@processPurchase')->name('purchase.process');
+Route::post('/purchase/update/price/{id}', 'Purchase\PurchaseController@PurchasePriceUpdate')->name('purchase.price');
+Route::delete('/purchase/reset', 'Purchase\PurchaseController@resetPurhase')->name('purchase.clear');
 
     /**** STOCK ****/
 Route::resource('/stocks', 'Stock\StockController');

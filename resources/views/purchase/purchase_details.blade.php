@@ -133,8 +133,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Action</th>                                                
-                                                <th scope="col">Photo</th>
+                                                <th scope="col">Action</th> 
                                                 <th scope="col">Product</th>
                                                 <th scope="col">Qty</th>
                                                 <th scope="col">Price</th>
@@ -142,33 +141,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($purchase as $item)
+                                                
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td><a href="#" class="text-success mr-2"><i class="feather icon-edit-2"></i></a><a href="#" class="text-danger"><i class="feather icon-trash"></i></a></td>
-                                                <td><img src="assets/images/ecommerce/product_01.svg" class="img-fluid" width="35" alt="product"></td>
-                                                <td>Apple MacBook Pro</td>
-                                                <td>1</td>
-                                                <td>$10</td>
-                                                <td class="text-right">$500</td>
+                                                <tr>
+                                                    <th scope="row">{{ $loop->iteration }}</th>
+                                                    <td>
+                                                        <a href="#" class="text-danger"><i class="feather icon-trash"></i></a>
+                                                    </td>
+                                                    <td>{{ $item->stocks->name }}</td>
+                                                    <td>
+                                                        {{ $item->quantity }}
+                                                    </td>
+                                                    <td>
+                                                        ₦{{ number_format($item->price) }}
+                                                        {{-- <a href="#" class="text-success"><i class="feather icon-edit-2" data-toggle="modal" data-target="#purchase_price{{ $order->id }}" data-whatever="@fat"></i></a> --}}
+            
+                                                    </td>
+                                                    <td class="text-right">₦{{ number_format($item->price * $item->quantity) }}</td>
+                                                </tr>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td><a href="#" class="text-success mr-2"><i class="feather icon-edit-2"></i></a><a href="#" class="text-danger"><i class="feather icon-trash"></i></a></td>
-                                                <td><img src="assets/images/ecommerce/product_02.svg" class="img-fluid" width="35" alt="product"></td>
-                                                <td>Dell Alienware</td>
-                                                <td>2</td>
-                                                <td>$20</td>
-                                                <td class="text-right">$200</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td><a href="#" class="text-success mr-2"><i class="feather icon-edit-2"></i></a><a href="#" class="text-danger"><i class="feather icon-trash"></i></a></td>                                                
-                                                <td><img src="assets/images/ecommerce/product_03.svg" class="img-fluid" width="35" alt="product"></td>
-                                                <td>Acer Predator Helios</td>
-                                                <td>3</td>
-                                                <td>$30</td>
-                                                <td class="text-right">$300</td>
-                                            </tr>
+
+                                            @endforeach
+
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -212,7 +208,7 @@
                                 <button type="button" class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Cancel</button>
                             </div>
                         </div>
-                        <div class="card m-b-30">
+                        {{-- <div class="card m-b-30">
                             <div class="card-header">                                
                                 <div class="row align-items-center">
                                     <div class="col-7">
@@ -231,7 +227,7 @@
                                     <p class="mb-0">Purchase GST : 24HG9878961Z1</p>
                                 </div>
                             </div>
-                        </div>                  
+                        </div>                   --}}
                     </div>
                     <!-- End col -->
                 </div>

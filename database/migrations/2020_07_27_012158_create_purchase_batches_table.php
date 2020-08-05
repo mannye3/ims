@@ -17,10 +17,11 @@ class CreatePurchaseBatchesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('shop_id');
             $table->integer('user_id');
-            $table->integer('supplier');
+            $table->integer('supplier')->nullabe();
             $table->string('reference_no');
             $table->string('payment_method');
             $table->string('total_cost');
+            $table->string('amount_paid')->default(0);
             $table->timestamps();
         });
     }

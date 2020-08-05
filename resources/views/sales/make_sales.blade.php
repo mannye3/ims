@@ -35,7 +35,7 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">New Purchase</h4>
+                        <h4 class="page-title">New Sales</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
@@ -48,7 +48,7 @@
             <div class="contentbar">
                 <!-- Start row -->
                 {{-- @livewire('purchase') --}}
-                @include('purchase.partials.purchase_form')
+                @include('sales.partials.sales_form')
                 <!-- End row -->
             </div>
             <!-- End Contentbar -->

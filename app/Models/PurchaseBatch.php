@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Shop;
+use App\Models\Stock;
 use Illuminate\Database\Eloquent\Model;
 
 class PurchaseBatch extends Model
@@ -11,9 +13,7 @@ class PurchaseBatch extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'shop_id', 'stock_id', 'product_code', 'quantity', 'unit_cost', 'cost_amount'
-    ];
+    protected $guarded = [];
 
     /** Relationship 8*/
     public function stocks()

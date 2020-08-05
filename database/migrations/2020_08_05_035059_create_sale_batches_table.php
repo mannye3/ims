@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrePurchasesTable extends Migration
+class CreateSaleBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreatePrePurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pre_purchases', function (Blueprint $table) {
+        Schema::create('sale_batches', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('shop_id');
             $table->integer('user_id');
-            $table->integer('shop_id')->nullable();
-            $table->integer('quantity');
-            $table->integer('stock_id');
-            $table->string('product_code')->nullable();
-            $table->integer('supplier')->nullable();
-            $table->string('price');
+            $table->integer('supplier')->nullabe();
+            $table->string('reference_no');
+            $table->string('payment_method');
+            $table->string('total_cost');
+            $table->string('amount_paid')->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreatePrePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pre_purchases');
+        Schema::dropIfExists('sale_batches');
     }
 }

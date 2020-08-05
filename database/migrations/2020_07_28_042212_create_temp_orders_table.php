@@ -18,7 +18,6 @@ class CreateTempOrdersTable extends Migration
             $table->integer('user_id');
             $table->integer('quantity')->default(1);
             $table->integer('stock_id');
-            $table->string('reference');
             $table->timestamps();
         });
     }
