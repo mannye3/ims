@@ -62,6 +62,15 @@ class SaleController extends Controller
     }
 
 
+    /** Delete single product from list */
+    public function removeProduct($id)
+    {
+        PreSale::find($id)->delete();
+
+        return redirect()->back();
+    }
+
+
     public function SalesPriceUpdate(Request $request, $id)
     {
         $salesOrder = PreSale::find($id);

@@ -139,10 +139,13 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
+                                
+                                    @include('sales.partials.remove_stock');
+
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>
-                                            <a href="#" class="text-danger"><i class="feather icon-trash"></i></a>
+                                            <a href="#" class="text-danger"><i class="feather icon-trash" data-toggle="modal" data-target="#remove-modal{{ $order->id }}" data-whatever="@fat"></i></a>
                                         </td>
                                         <td>{{ $order->stock->name }}</td>
                                         <td>

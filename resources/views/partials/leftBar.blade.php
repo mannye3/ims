@@ -35,11 +35,7 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/purchase">Puchase</a></li>
-                        <li><a href="/purchase">General Puchase</a></li>
-                        {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
-                        <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
+                        {{-- <li><a href="/purchase">General Puchase</a></li> --}}
                     </ul>
                 </li>
 
@@ -48,12 +44,8 @@
                       <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Stocks Management</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="/stocks">Category</a></li>
+                        {{-- <li><a href="/stocks">Category</a></li> --}}
                         <li><a href="/stocks">Items</a></li>
-                        {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
-                        <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
                     </ul>
                 </li>
 
@@ -63,10 +55,6 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/debtors">Debtors</a></li>
-                        {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
-                        <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
                     </ul>
                 </li>
 
@@ -76,12 +64,18 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="#">Creditors</a></li>
-                        {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
-                        <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
                     </ul>
                 </li>
+
+                {{-- <li>
+                    <a href="javaScript:void();">
+                      <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Customer Management</span><i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        {{-- <li><a href="/stocks">Category</a></li> 
+                        <li><a href="/stocks">Items</a></li>
+                    </ul>
+                </li> --}}
 
                 <li>
                     <a href="javaScript:void();">
@@ -89,10 +83,7 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="#">Reports</a></li>
-                        {{-- <li><a href="dashboard-ecommerce.html">eCommerce</a></li>
-                        <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
+                        <li><a href="/transactions">Transactions</a></li>
                     </ul>
                 </li>
 

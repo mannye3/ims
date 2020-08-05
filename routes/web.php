@@ -86,6 +86,7 @@ Route::post('/process/sales', 'Sales\SaleController@processSales');
 Route::get('/sales/details/{reference}', 'Sales\SaleController@SalesDetail');
 Route::post('/sales/update/price/{id}', 'Sales\SaleController@SalesPriceUpdate');
 Route::post('/sales/reset', 'Sales\SaleController@ResetSales');
+Route::delete('/sales/remove/{id}', 'Sales\SaleController@removeProduct');
 Route::delete('/sales/reset', 'Sales\SaleController@resetSales')->name('Sales.clear');
 
     /**** PURCHASE ****/
@@ -95,7 +96,9 @@ Route::get('/purchase/create', 'Purchase\PurchaseController@create')->name('purc
 Route::post('/purchase/add', 'Purchase\PurchaseController@store')->name('purchase.store');
 Route::post('/process/purchase', 'Purchase\PurchaseController@processPurchase')->name('purchase.process');
 Route::post('/purchase/update/price/{id}', 'Purchase\PurchaseController@PurchasePriceUpdate')->name('purchase.price');
+Route::delete('/purchase/remove/{id}', 'Purchase\PurchaseController@removeProduct')->name('remove.product');
 Route::delete('/purchase/reset', 'Purchase\PurchaseController@resetPurhase')->name('purchase.clear');
+
 
     /**** STOCK ****/
 Route::resource('/stocks', 'Stock\StockController');

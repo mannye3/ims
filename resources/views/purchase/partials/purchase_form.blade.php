@@ -160,10 +160,13 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
+                                
+                                    @include('purchase.partials.remove_stock');
+
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
-                                            <a href="#" class="text-danger"><i class="feather icon-trash"></i></a>
+                                            <a class="text-danger"><i class="feather icon-trash" data-toggle="modal" data-target="#remove-modal{{ $order->id }}" data-whatever="@fat"></i></a>
                                         </td>
                                         <td>{{ $order->stock->name }}</td>
                                         <td>
@@ -171,7 +174,7 @@
                                         </td>
                                         <td>
                                             ₦{{ number_format($order->price) }}
-                                            <a href="#" class="text-success"><i class="feather icon-edit-2" data-toggle="modal" data-target="#purchase_price{{ $order->id }}" data-whatever="@fat"></i></a>
+                                            <a class="text-success"><i class="feather icon-edit-2" data-toggle="modal" data-target="#purchase_price{{ $order->id }}" data-whatever="@fat"></i></a>
 
                                         </td>
                                         <td class="text-right">₦{{ number_format($order->price * $order->quantity) }}</td>

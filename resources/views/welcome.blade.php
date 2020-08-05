@@ -362,8 +362,8 @@
                                             @foreach ($lowStock as $item)
 
                                             <tr>
-                                                <td>1</td>
-                                                <td>John Doe</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $lowStock->stocks->name }} }}</td>
                                                 <td>5</td>
                                                 <td>99</td>
                                                 <td>

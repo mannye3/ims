@@ -78,6 +78,17 @@ class PurchaseController extends Controller
         return redirect()->back();
     }
 
+
+    /** Delete single product from list */
+    public function removeProduct($id)
+    {
+        $order = PrePurchase::find($id)->delete();
+
+        return redirect()->back();
+    }
+
+
+
     public function PurchasePriceUpdate(Request $request, $id)
     {
         $purchaseOrder = PrePurchase::find($id);

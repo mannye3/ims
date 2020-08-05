@@ -149,7 +149,7 @@
                                                     <td>
                                                         <a href="#" class="text-danger"><i class="feather icon-trash"></i></a>
                                                     </td>
-                                                    {{-- <td>{{ $item->stocks->name }}</td> --}}
+                                                    <td>{{ $item->stocks->name }}</td>
                                                     <td>
                                                         {{ $item->quantity }}
                                                     </td>
