@@ -1,18 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Shop;
+namespace App\Http\Controllers\Expense;
 
-use App\Models\Shop;
+use App\Models\Expense;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ShopController extends Controller
+class ExpenseController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,10 +20,12 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $allShops = Shop::all();
+       // Get Shop
+       $expenses = Expense::latest()->get();
 
-        return view('shop.shops',compact('allShops'));
+       return view('expenses.expenses', compact('expenses')); 
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -38,35 +35,16 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
-
-        Shop::create($request->all());
+        Expense::create([
+            'reason' => $request->reason,
+            'amount' => $request->amount,
+            'date' => $request->date,
+            'user_id' => auth()->user()->id
+        ]);
 
         return redirect()->back();
-        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -77,8 +55,8 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $shops = Shop::find($id);
-        $shops->update($request->all());
+        $expense = Expense::find($id);
+        $expense->update($request->all());;
 
         return redirect()->back();
     }
@@ -91,7 +69,7 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
-        Shop::find($id)->delete();
+        Expense::find($id)->delete();
 
         return redirect()->back();
     }

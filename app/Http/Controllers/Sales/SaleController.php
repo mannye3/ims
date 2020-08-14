@@ -12,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class SaleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -143,16 +149,42 @@ class SaleController extends Controller
         SaleBatch::create([
             'user_id' => auth()->user()->id,
             'shop_id' => $request->shop_id,
-            'total_cost' => $allprice,
+            'total_cost' => $request->total_cost,
             'reference_no' => $reference,
             'payment_method' => $request->paymentMethod,
             'amount_paid' => $request->amount_paid
         ]);
 
+        if ($request->total_cost < $request->amount_paid) {
+            
+        } else {
+
+        }
+
         // Clear tempOrder
         PreSale::where('user_id', auth()->user()->id)->delete();
 
         return redirect('/sales');
+    }
+
+
+
+    /**
+     * Credit sale
+     */
+    public function creditSales()
+    {
+        return $totalCost = SaleBatch::where('amount_paid', '<', 'total_cost')->get();
+
+        // $creditSales = [];
+        foreach ($totalCost as $cost) {
+            return $cost;
+            $creditSales = SaleBatch::where('amount_paid', '<', 290)->get();
+            
+        }
+        return $creditSales;
+
+        return view('sales.credit_sales', compact('creditSales'));
     }
 
     /**

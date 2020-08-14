@@ -25,7 +25,8 @@
                     <ul class="vertical-submenu">
                         <li><a href="/sales">Sales</a></li>
                         <li><a href="#">Invoices</a></li>
-                        <li><a href="/sales/add">New Sales</a></li>
+                        <li><a href="/sales/add">Credit Sales</a></li>
+                        <li><a href="/credit/sales">Credit Sales</a></li>
                     </ul>
                 </li>
                 
@@ -67,6 +68,12 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="/expenses">
+                        <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid" alt="widgets"><span>Expenses</span>
+                    </a>
+                </li>
+
                 {{-- <li>
                     <a href="javaScript:void();">
                       <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Customer Management</span><i class="feather icon-chevron-right pull-right"></i>
@@ -79,11 +86,12 @@
 
                 <li>
                     <a href="javaScript:void();">
-                      <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>Reports</span><i class="feather icon-chevron-right pull-right"></i>
+                      <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>Financial Reports</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="#">Reports</a></li>
-                        <li><a href="/transactions">Transactions</a></li>
+                        <li><a href="/transactions">All Transactions</a></li>
+                        <li><a href="#">Cash Balanace</a></li>
+                        <li><a href="/transactions">Weekly Report</a></li>
                     </ul>
                 </li>
 
@@ -105,9 +113,6 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/users">User</a></li>
-                        {{-- <li><a href="dashboard-hospital.html">Hospital</a></li>
-                        <li><a href="dashboard-crypto.html">Crypto</a></li>
-                        <li><a href="dashboard-school.html">School</a></li> --}}
                     </ul>
                 </li>
 

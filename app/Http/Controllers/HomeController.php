@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Stock;
+use App\Models\Expense;
+use App\Models\SaleBatch;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -30,10 +33,21 @@ class HomeController extends Controller
 
         $lowStock = Stock::where('quantity', '<', 2)->get();
 
+        // Expenses
+        $todayExpenses = Expense::where('created_at', Carbon::today())->sum('amount');
+        $allExpenses = Expense::all()->sum('amount');
+
+        // Revenue
+        $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
+        $allRevenue = SaleBatch::all()->sum('amount_paid');
+
         // Users
         $staffs = User::all()->count();
         
 
-        return view('welcome', compact('stockValue', 'stockQuantity', 'staffs', 'lowStock'));
+        return view('welcome', compact(
+            'stockValue', 'stockQuantity', 'staffs', 'lowStock', 'todayExpenses', 'allExpenses',
+            'todayRevenue', 'allRevenue'
+        ));
     }
 }

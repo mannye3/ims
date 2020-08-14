@@ -31,6 +31,7 @@
 
                         <label for="recipient-name" class="col-form-label">Amount Paid:</label>
                         <input style="border-color:#9794af;" type="number" class="form-control" name="amount_paid">
+                        <input style="border-color:#9794af;" type="hidden" class="form-control" name="total_cost" value="{{ $totalCost }}">
                         
                 </div>
                 <div class="modal-footer">

@@ -89,6 +89,8 @@ Route::post('/sales/reset', 'Sales\SaleController@ResetSales');
 Route::delete('/sales/remove/{id}', 'Sales\SaleController@removeProduct');
 Route::delete('/sales/reset', 'Sales\SaleController@resetSales')->name('Sales.clear');
 
+Route::get('/credit/sales', 'Sales\SaleController@creditSales')->name('credit.sales');
+
     /**** PURCHASE ****/
 Route::get('/purchase', 'Purchase\PurchaseController@index')->name('purchase.list');
 Route::get('/purchase/details/{reference}', 'Purchase\PurchaseController@purchaseDetails')->name('purchase.details');
@@ -110,3 +112,7 @@ Route::resource('/banks', 'Bank\BankController');
 
     /*** DEBTORS ****/
 Route::resource('/debtors', 'Debtor\DebtorController');
+
+
+    /*** EXPENSE ****/
+Route::resource('/expenses', 'Expense\ExpenseController');

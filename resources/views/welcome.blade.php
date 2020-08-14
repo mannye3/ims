@@ -141,15 +141,15 @@
                                         <span class="action-icon badge badge-success-inverse mr-0"><i class="fa fa-money"></i></span>
                                     </div>
                                     <div class="col-7 text-right">
-                                        <h5 class="card-title font-14">Revenue</h5>
-                                        <h4 class="mb-0">₦0</h4>
+                                        <h5 class="card-title font-14">Today Revenue</h5>
+                                        <h4 class="mb-0">₦{{ number_format($todayRevenue) }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <span class="font-13">Updated Today</span>
+                                        <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
                                         <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span>
@@ -168,15 +168,15 @@
                                         <span class="action-icon badge badge-success-inverse mr-0"><i class="feather icon-award"></i></span>
                                     </div>
                                     <div class="col-7 text-right">
-                                        <h5 class="card-title font-14">Profit</h5>
-                                        <h4 class="mb-0">₦0</h4>
+                                        <h5 class="card-title font-14">Today Expenses</h5>
+                                        <h4 class="mb-0">₦{{ number_format($todayExpenses) }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <span class="font-13">Updated 1 Day ago</span>
+                                        <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
                                         <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span>
@@ -203,7 +203,7 @@
                             <div class="card-footer">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <span class="font-13">Total Stock Available</span>
+                                        <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
                                         <span class="badge badge-success"></i>{{ $stockQuantity }}</span>
@@ -230,7 +230,123 @@
                             <div class="card-footer">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <span class="font-13">Updated 5 Day ago</span>
+                                        <span class="font-13"></span>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+
+                {{-- Next Line --}}
+
+
+                <!-- Start row -->
+                <div class="row"> 
+                    
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <span class="action-icon badge badge-success-inverse mr-0"><i class="fa fa-money"></i></span>
+                                    </div>
+                                    <div class="col-7 text-right">
+                                        <h5 class="card-title font-14">Total Revenue</h5>
+                                        <h4 class="mb-0">₦{{ number_format($allRevenue) }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <span class="font-13"></span>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                    <!-- Start col -->
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <span class="action-icon badge badge-success-inverse mr-0"><i class="feather icon-award"></i></span>
+                                    </div>
+                                    <div class="col-7 text-right">
+                                        <h5 class="card-title font-14">Today Expenses</h5>
+                                        <h4 class="mb-0">₦{{ number_format($allExpenses) }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <span class="font-13"></span>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                    <!-- Start col -->
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <span class="action-icon badge badge-warning-inverse mr-0"><i class="feather icon-briefcase"></i></span>
+                                    </div>
+                                    <div class="col-7 text-right">
+                                        <h5 class="card-title font-14">Stocks Value</h5>
+                                        <h4 class="mb-0">₦{{ $stockValue }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <span class="font-13"></span>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span class="badge badge-success"></i>{{ $stockQuantity }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                    <!-- Start col -->
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <span class="action-icon badge badge-primary-inverse mr-0"><i class="feather icon-user"></i></span>
+                                    </div>
+                                    <div class="col-7 text-right">
+                                        <h5 class="card-title font-14">Staffs</h5>
+                                        <h4 class="mb-0">{{ $staffs }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
                                         <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span>
@@ -333,7 +449,7 @@
                             <div class="card-header">                                
                                 <div class="row align-items-center">
                                     <div class="col-6 col-lg-9">
-                                        <h5 class="card-title mb-0">Item AlertS</h5>
+                                        <h5 class="card-title mb-0">Low Stocks</h5>
                                     </div>
                                     <div class="col-6 col-lg-3">
                                         {{-- <select class="form-control font-12">
@@ -352,10 +468,10 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Name</th>
-                                                <th>SKU</th>
-                                                <th>Location</th>
+                                                <th>Shop/Branch</th>
+                                                <th>Item</th>
                                                 <th>Quantity</th>
+                                                <th>level</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -363,11 +479,11 @@
 
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $lowStock->stocks->name }} }}</td>
-                                                <td>5</td>
-                                                <td>99</td>
+                                                <td>{{ $item->shop->name }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->quantity }}</td>
                                                 <td>
-                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">MATHEMATICS</span>
+                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">Restock</span>
                                                 </td>
                                             </tr>
                                                 
