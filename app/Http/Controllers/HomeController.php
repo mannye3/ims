@@ -34,8 +34,8 @@ class HomeController extends Controller
         $lowStock = Stock::where('quantity', '<', 2)->get();
 
         // Expenses
-        $todayExpenses = Expense::where('created_at', Carbon::today())->sum('amount');
-        $allExpenses = Expense::all()->sum('amount');
+        // $todayExpenses = Expense::where('created_at', Carbon::today())->sum('amount');
+        // $allExpenses = Expense::all()->sum('amount');
 
         // Revenue
         // $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
