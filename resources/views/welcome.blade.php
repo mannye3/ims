@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="col-7 text-right">
                                         <h5 class="card-title font-14">Today Revenue</h5>
-                                        <h4 class="mb-0">₦{{ number_format($todayRevenue) }}</h4>
+                                        {{-- <h4 class="mb-0">₦{{ number_format($todayRevenue) }}</h4> --}}
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-7 text-right">
                                         <h5 class="card-title font-14">Today Expenses</h5>
-                                        <h4 class="mb-0">₦{{ number_format($todayExpenses) }}</h4>
+                                        {{-- <h4 class="mb-0">₦{{ number_format($todayExpenses) }}</h4> --}}
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@
                                     </div>
                                     <div class="col-7 text-right">
                                         <h5 class="card-title font-14">Total Revenue</h5>
-                                        <h4 class="mb-0">₦{{ number_format($allRevenue) }}</h4>
+                                        {{-- <h4 class="mb-0">₦{{ number_format($allRevenue) }}</h4> --}}
                                     </div>
                                 </div>
                             </div>
@@ -285,7 +285,7 @@
                                     </div>
                                     <div class="col-7 text-right">
                                         <h5 class="card-title font-14">Today Expenses</h5>
-                                        <h4 class="mb-0">₦{{ number_format($allExpenses) }}</h4>
+                                        {{-- <h4 class="mb-0">₦{{ number_format($allExpenses) }}</h4> --}}
                                     </div>
                                 </div>
                             </div>
