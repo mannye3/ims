@@ -38,8 +38,8 @@ class HomeController extends Controller
         $allExpenses = Expense::all()->sum('amount');
 
         // Revenue
-        $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
-        $allRevenue = SaleBatch::all()->sum('amount_paid');
+        // $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
+        // $allRevenue = SaleBatch::all()->sum('amount_paid');
 
         // Users
         $staffs = User::all()->count();
