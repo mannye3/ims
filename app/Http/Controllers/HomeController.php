@@ -35,14 +35,17 @@ class HomeController extends Controller
 
         // Expenses
         $expToday = Expense::where('created_at', Carbon::today())->pluck('amount');
-        $todayExpenses = $expToday->sum('amount');
+        $todayExpenses = $expToday->sum();
         
-        $expAll = Expense::pluck('amount');
-        $allExpenses = $expAll->sum('amount');
+        $expAll = Expense::all()->pluck('amount');
+        $allExpenses = $expAll->sum();
 
         // Revenue
-        // $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
-        // $allRevenue = SaleBatch::all()->sum('amount_paid');
+        $revToday = SaleBatch::where('created_at', Carbon::today())->pluck('amount_paid');
+        $todayRevenue = $revToday->sum();
+
+        $revAll = SaleBatch::all()->pluck('amount_paid');
+        $allRevenue = $revAll->sum();
 
         // Users
         $staffs = User::all()->count();
@@ -50,7 +53,7 @@ class HomeController extends Controller
 
         return view('welcome', compact(
             'stockValue', 'stockQuantity', 'staffs', 'lowStock',
-            'todayExpenses', 'allExpenses'
+            'todayExpenses', 'allExpenses', 'todayRevenue', 'allRevenue'
         ));
     }
 }
