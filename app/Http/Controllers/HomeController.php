@@ -46,8 +46,7 @@ class HomeController extends Controller
         
 
         return view('welcome', compact(
-            'stockValue', 'stockQuantity', 'staffs', 'lowStock', 'todayExpenses', 'allExpenses',
-            'todayRevenue', 'allRevenue'
+            'stockValue', 'stockQuantity', 'staffs', 'lowStock',
         ));
     }
 }
