@@ -284,8 +284,8 @@
                                         <span class="action-icon badge badge-success-inverse mr-0"><i class="feather icon-award"></i></span>
                                     </div>
                                     <div class="col-7 text-right">
-                                        <h5 class="card-title font-14">Today Expenses</h5>
-                                        {{-- <h4 class="mb-0">₦{{ number_format($allExpenses) }}</h4> --}}
+                                        <h5 class="card-title font-14">All Expenses</h5>
+                                        <h4 class="mb-0">₦{{ number_format($allExpenses) }}</h4>
                                     </div>
                                 </div>
                             </div>

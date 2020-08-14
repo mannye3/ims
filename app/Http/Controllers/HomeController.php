@@ -34,8 +34,11 @@ class HomeController extends Controller
         $lowStock = Stock::where('quantity', '<', 2)->get();
 
         // Expenses
-        // $todayExpenses = Expense::where('created_at', Carbon::today())->sum('amount');
-        // $allExpenses = Expense::all()->sum('amount');
+        $expToday = Expense::where('created_at', Carbon::today())->pluck('amount');
+        $todayExpenses = $expToday->sum('amount');
+        
+        $expAll = Expense::pluck('amount');
+        $allExpenses = $expAll->sum('amount');
 
         // Revenue
         // $todayRevenue = SaleBatch::where('created_at', Carbon::today())->sum('amount_paid');
@@ -47,6 +50,7 @@ class HomeController extends Controller
 
         return view('welcome', compact(
             'stockValue', 'stockQuantity', 'staffs', 'lowStock',
+            'todayExpenses', 'allExpenses'
         ));
     }
 }
