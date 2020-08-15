@@ -102,9 +102,9 @@
                                                     <label for="recipient-name" class="col-form-label">Role:</label>
                                                     <select style="border-color:#9794af;" name="role" class="form-control" required>
                                                         <option>-- Select Role --</option>
-                                                        <option value='user'> Sales Person</option>
-                                                        <option value="admin">Manager</option>
-                                                        <option value="super_admin">CEO</option>
+                                                        <option value='3'> Sales Person</option>
+                                                        <option value="2">Manager</option>
+                                                        <option value="1">CEO</option>
                                                     </select>
                                                 </div>
                                             </div>

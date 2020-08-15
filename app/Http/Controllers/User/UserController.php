@@ -39,9 +39,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
 
-        User::create([
+        $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'phone' => $request->phone,
@@ -49,6 +48,19 @@ class UserController extends Controller
             'role' => $request->role,
             'password' => Hash::make($request->firstname.'@'.$request->lastname)
         ]);
+
+        // return $request;
+        if ($request->role == 1){
+            $user->attachRole(1);
+        }
+
+        if ($request->role == 2){
+            $user->attachRole(3);
+        }
+
+        if (!isset($request->rRole)){
+            $user->attachRole(3);
+        }
 
         return redirect()->back();
         

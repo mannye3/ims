@@ -95,11 +95,13 @@
                     </ul>
                 </li>
 
+                @role('ceo','manager')
                 <li>
                     <a href="/shops">
                         <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid" alt="widgets"><span>Shops</span>
                     </a>
-                </li> 
+                </li>
+                @endrole
 
                 <li>
                     <a href="/banks">
@@ -107,6 +109,7 @@
                     </a>
                 </li>
 
+                @role('ceo','manager')
                 <li>
                     <a href="javaScript:void();">
                       <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>User Management</span><i class="feather icon-chevron-right pull-right"></i>
@@ -115,6 +118,7 @@
                         <li><a href="/users">User</a></li>
                     </ul>
                 </li>
+                @endrole
 
             </ul>
         </div>
