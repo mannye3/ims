@@ -95,8 +95,9 @@ class SaleController extends Controller
     public function SalesDetail($reference)
     {
         $sales = Sale::where('reference_no', $reference)->get();
+        $saleBatch = SaleBatch::where('reference_no', $reference)->first();
 
-        return view('sales.sales_detail', compact('sales'));
+        return view('sales.sales_detail', compact('sales', 'saleBatch'));
     }
 
 

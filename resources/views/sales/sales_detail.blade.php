@@ -180,7 +180,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>Amount Paid :</td>
-                                                        <td>{{ $ }}</td>
+                                                        <td>{{ $saleBatch->amount_paid }}</td>
                                                     </tr>
                                                     {{-- <tr>
                                                         <td>Shipping :</td>
@@ -192,7 +192,7 @@
                                                     </tr> --}}
                                                     <tr>
                                                         <td class="text-black f-w-7 font-18">Amount :</td>
-                                                        <td class="text-black f-w-7 font-18">$1180.00</td>
+                                                        <td class="text-black f-w-7 font-18">${{ $saleBatch->total_cost }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
