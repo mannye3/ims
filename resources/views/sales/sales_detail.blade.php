@@ -171,9 +171,7 @@
                                 <div class="row border-top pt-3">
                                     <div class="col-md-12 order-2 order-lg-1 col-lg-4 col-xl-6">
                                         <div class="order-note">
-                                            <p class="mb-5"><span class="badge badge-secondary-inverse">Free Shipping Order</span></p>
-                                            <h6>Note :</h6>
-                                            <p>Please, Pack with product air bag and handle with care.</p>
+                                            {{--   --}}
                                         </div>
                                     </div>
                                     <div class="col-md-12 order-1 order-lg-2 col-lg-8 col-xl-6">
@@ -181,17 +179,17 @@
                                             <table class="table table-borderless text-right">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Sub Total :</td>
-                                                        <td>$1000.00</td>
+                                                        <td>Amount Paid :</td>
+                                                        <td>{{ $ }}</td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td>Shipping :</td>
                                                         <td>$0.00</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Tax(18%) :</td>
                                                         <td>$180.00</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                     <tr>
                                                         <td class="text-black f-w-7 font-18">Amount :</td>
                                                         <td class="text-black f-w-7 font-18">$1180.00</td>
@@ -202,11 +200,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer text-right">
+                            {{-- <div class="card-footer text-right">
                                 <button type="button" class="btn btn-primary-rgba my-1"><i class="feather icon-plus mr-2"></i>Add Product</button>
                                 <button type="button" class="btn btn-success-rgba my-1"><i class="feather icon-repeat mr-2"></i>Refund</button>
                                 <button type="button" class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Cancel</button>
-                            </div>
+                            </div> --}}
                         </div>
                         {{-- <div class="card m-b-30">
                             <div class="card-header">                                

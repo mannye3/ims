@@ -49,6 +49,9 @@ class HomeController extends Controller
 
         // Users
         $staffs = User::all()->count();
+
+        // Cash Payment
+        // $cashPayment = SaleBatch::where('')->pluck('amount_paid');
         
 
         return view('welcome', compact(

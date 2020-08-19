@@ -24,9 +24,9 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/sales">Sales</a></li>
-                        <li><a href="#">Invoices</a></li>
+                        {{-- <li><a href="#">Invoices</a></li>
                         <li><a href="/sales/add">Credit Sales</a></li>
-                        <li><a href="/credit/sales">Credit Sales</a></li>
+                        <li><a href="/credit/sales">Credit Sales</a></li> --}}
                     </ul>
                 </li>
                 
@@ -90,7 +90,7 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/transactions">All Transactions</a></li>
-                        <li><a href="#">Cash Balanace</a></li>
+                        <li><a href="cash/movement">Cash Movement</a></li>
                         <li><a href="/transactions">Weekly Report</a></li>
                     </ul>
                 </li>

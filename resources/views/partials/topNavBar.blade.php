@@ -20,13 +20,13 @@
                         </div>
                         <div class="infobar">
                             <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
+                                {{-- <li class="list-inline-item">
                                     <div class="settingbar">
                                         <a href="javascript:void(0)" id="infobar-settings-open" class="infobar-icon">
                                             <img src="{{ asset('assets/images/svg-icon/settings.svg') }}" class="img-fluid" alt="settings">
                                         </a>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li class="list-inline-item">
                                     <div class="notifybar">
                                         <div class="dropdown">

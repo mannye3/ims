@@ -116,3 +116,6 @@ Route::resource('/debtors', 'Debtor\DebtorController');
 
     /*** EXPENSE ****/
 Route::resource('/expenses', 'Expense\ExpenseController');
+
+
+Route::get('/cash/movement', 'CashMovement\CashMovementController@index');
