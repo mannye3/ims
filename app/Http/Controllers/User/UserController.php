@@ -42,7 +42,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
@@ -58,7 +58,7 @@ class UserController extends Controller
         }
 
         if ($request->role == 2){
-            $user->attachRole(3);
+            $user->attachRole(2);
         }
 
         if (!isset($request->rRole)){
