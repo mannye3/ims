@@ -28,10 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $stockValue = Stock::all()->pluck('price')->sum();
+        /** For The Supper User **/
+        $stockValue = Stock::all()->pluck('cost_price')->sum();
         $stockQuantity = Stock::all()->pluck('quantity')->sum();
 
-        $lowStock = Stock::where('quantity', '<', 2)->get();
+        $lowStock = Stock::all();
 
         // Expenses
         $expToday = Expense::where('created_at', Carbon::today())->pluck('amount');
@@ -42,10 +43,36 @@ class HomeController extends Controller
 
         // Revenue
         $revToday = SaleBatch::where('created_at', Carbon::today())->pluck('amount_paid');
-        $todayRevenue = $revToday->sum();
+        $todayRevenue = $revToday->sum() - $todayExpenses;
 
         $revAll = SaleBatch::all()->pluck('amount_paid');
-        $allRevenue = $revAll->sum();
+        $allRevenue = $revAll->sum() - $allExpenses;
+
+        // Users
+        $staffs = User::all()->count();
+
+
+        /** Shop Users **/
+        $userShop = auth()->user()->shop_id;
+
+        $subStockValue = Stock::where('shop_id', $userShop)->pluck('cost_price')->sum();
+        $subStockQuantity = Stock::where('shop_id', $userShop)->pluck('quantity')->sum();
+
+        $subLowStock = Stock::where('shop_id', $userShop)->get();
+
+        // Expenses
+        $subExpToday = Expense::where('created_at', Carbon::today())->pluck('amount');
+        $subTodayExpenses = $expToday->sum();
+        
+        $subExpAll = Expense::where('shop_id', $userShop)->pluck('amount');
+        $subAllExpenses = $expAll->sum();
+
+        // Revenue
+        $subRevToday = SaleBatch::where('created_at', Carbon::today())->pluck('amount_paid');
+        $subTodayRevenue = $revToday->sum() - $todayExpenses;
+
+        $subRevAll = SaleBatch::all()->pluck('amount_paid');
+        $subAllRevenue = $revAll->sum() - $allExpenses;
 
         // Users
         $staffs = User::all()->count();

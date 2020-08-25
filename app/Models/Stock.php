@@ -14,9 +14,7 @@ class Stock extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'shop_id', 'quantity', 'name', 'price'
-    ];
+    protected $guarded = [];
 
 
     /** Relationship 8*/

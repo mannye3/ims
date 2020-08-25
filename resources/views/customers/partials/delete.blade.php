@@ -1,17 +1,17 @@
 {{-- MODAL --}}
     <!-- Modal -->
-    <div class="modal fade" id="delete-modal{{ $shop->id }}" tabindex="-1" role="dialog" aria-labelledby="varying-modal-label" aria-hidden="true">
+    <div class="modal fade" id="delete-modal{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="varying-modal-label" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="varying-modal-label">Edit Shop Info</h5>
+                    <h5 class="modal-title" id="varying-modal-label">Delete Customer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <form action="shops/{{ $shop->id }}" method="POST">
+                    <form action="customers/{{ $customer->id }}" method="POST">
                         @csrf
 
                         @method('DELETE')

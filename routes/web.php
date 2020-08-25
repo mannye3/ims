@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Helpers\Basic;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -28,16 +29,12 @@ use Illuminate\Support\Facades\Hash;
 
 
 ///////////////////
-Route::get('add/user', function() {
-    User::create([
-        'firstname' => 'john',
-        'lastname' => 'doe',
-        'phone' => '0909248385385',
-        'email' => 'john@mail.com',
-        'role' => 'user',
-        'password' => Hash::make('secret12')
-    ]);
-    return 'User create';
+
+
+Route::get('run/basic', function() {
+    Basic::createRoles();
+    Basic::createSuperUser();
+    return "Successful";
 });
 
 Auth::routes();
@@ -79,7 +76,7 @@ Route::resource('/shops', 'Shop\ShopController');
 
 
     /**** SALES ****/
-Route::get('/sales', 'Sales\SaleController@index');
+Route::get('/sales', 'Sales\SaleController@index')->name('sales');
 Route::get('/sales/create', 'Sales\SaleController@create');
 Route::post('/sales/add', 'Sales\SaleController@store');
 Route::post('/process/sales', 'Sales\SaleController@processSales');
@@ -88,6 +85,7 @@ Route::post('/sales/update/price/{id}', 'Sales\SaleController@SalesPriceUpdate')
 Route::post('/sales/reset', 'Sales\SaleController@ResetSales');
 Route::delete('/sales/remove/{id}', 'Sales\SaleController@removeProduct');
 Route::delete('/sales/reset', 'Sales\SaleController@resetSales')->name('Sales.clear');
+Route::delete('/sales/invoice/{reference}', 'Sales\SaleController@invoice')->name('Sales.invoice');
 
 Route::get('/credit/sales', 'Sales\SaleController@creditSales')->name('credit.sales');
 
@@ -116,6 +114,10 @@ Route::resource('/debtors', 'Debtor\DebtorController');
 
     /*** EXPENSE ****/
 Route::resource('/expenses', 'Expense\ExpenseController');
+
+
+    /*** CUSTOMERS ****/
+Route::resource('/customers', 'Customer\CustomerController');
 
 
 Route::get('/cash/movement', 'CashMovement\CashMovementController@index');

@@ -19,6 +19,7 @@ class CreateExpensesTable extends Migration
             $table->text('description')->nullable();
             $table->string('date');
             $table->string('amount');
+            $table->integer('shop_id')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

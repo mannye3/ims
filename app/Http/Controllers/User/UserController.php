@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,8 +28,10 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $shops = Shop::all();
+        // return $roles = config('roles.models.role')::pluck('slug');
 
-        return view('user.users',compact('users'));
+        return view('user.users',compact('users', 'shops'));
     }
 
     /**
@@ -45,7 +48,7 @@ class UserController extends Controller
             'lastname' => $request->lastname,
             'phone' => $request->phone,
             'email' => $request->email,
-            'role' => $request->role,
+            'shop_id' => $request->shop_id,
             'password' => Hash::make($request->firstname.'@'.$request->lastname)
         ]);
 

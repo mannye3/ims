@@ -1,17 +1,17 @@
 {{-- MODAL --}}
     <!-- Modal -->
-    <div class="modal fade" id="edit-modal{{ $shop->id }}" tabindex="-1" role="dialog" aria-labelledby="varying-modal-label" aria-hidden="true">
+    <div class="modal fade" id="edit-modal{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="varying-modal-label" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="varying-modal-label">Edit Shop Details</h5>
+                    <h5 class="modal-title" id="varying-modal-label">Edit Customer Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <form action="shops/{{ $shop->id }}" method="POST">
+                    <form action="customers/{{ $customer->id }}" method="POST">
                         @csrf
 
                         @method('PUT')
@@ -19,23 +19,30 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label"> Name:</label>
-                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" value="{{ $shop->name }}" required>
+                                    <label for="recipient-name" class="col-form-label"> Firstname:</label>
+                                    <input style="border-color:#9794af;" name="firstname" type="text" class="form-control" value="{{ $customer->firstname }}" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Location:</label>
-                                    <input style="border-color:#9794af;" name="location" type="text" class="form-control" value="{{ $shop->location }}" required>
+                                    <label for="recipient-name" class="col-form-label">Lastname:</label>
+                                    <input style="border-color:#9794af;" name="lastname" type="text" class="form-control" value="{{ $customer->lastname }}" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Phone:</label>
+                                    <input style="border-color:#9794af;" name="phone" type="number" class="form-control" value="{{ $customer->phone }}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Address:</label>
-                                    <input style="border-color:#9794af;" name="address" type="text" class="form-control" value="{{ $shop->address }}" required>
+                                    <input style="border-color:#9794af;" name="address" type="text" class="form-control" value="{{ $customer->address }}" required>
                                 </div>
                             </div>
 

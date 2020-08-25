@@ -48,6 +48,11 @@ class SaleController extends Controller
             $totalCost += $cost;
         }
 
+        $stocks = Stock::where('shop_id', auth()->user()->shop_id)
+                        ->where('quantity', '>', 0)
+                        ->get();
+
+
         return view('sales.make_sales', compact('shops', 'stocks', 'orders', 'totalCost'));
     }
 
@@ -55,12 +60,12 @@ class SaleController extends Controller
     public function ProcessSales(Request $request)
     {
         $stock = Stock::find($request->stock_id);
-        
+
         $saved = PreSale::create([
             'user_id' => auth()->user()->id,
             'stock_id' => $request->stock_id,
             'quantity' => $request->quantity,
-            'price' => $stock->price,
+            'price' => $stock->selling_price,
             // 'reference' => $reference
         ]);
 
@@ -98,6 +103,17 @@ class SaleController extends Controller
         $saleBatch = SaleBatch::where('reference_no', $reference)->first();
 
         return view('sales.sales_detail', compact('sales', 'saleBatch'));
+    }
+
+    /**
+     * Invoice
+     */
+    public function invoie($reference)
+    {
+        $sales = Sale::where('reference_no', $reference)->get();
+        $saleBatch = SaleBatch::where('reference_no', $reference)->first();
+
+        return view('sales.invoice', compact('sales', 'saleBatch'));
     }
 
 

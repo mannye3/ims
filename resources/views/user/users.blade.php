@@ -35,11 +35,11 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">Shops/Branches</h4>
+                        <h4 class="page-title">User / Staff</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
-                            <button class="btn btn-success-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add New Shop</button>
+                            <button class="btn btn-success-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add New User</button>
                         </div>                        
                     </div>
                 </div>          
@@ -108,6 +108,18 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Shop Assigned:</label>
+                                                    <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
+                                                        <option>-- Select Shop --</option>
+                                                        @foreach ($shops as $shop)
+                                                        <option value='{{ $shop->id }}'> {{ $shop->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         
                                 </div>
@@ -139,6 +151,8 @@
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>phone</th>
+                                            <th>Role</th>
+                                            <th>Shop</th>
                                             <th>Email</th>
                                             <th>Action</th>
                                         </tr>
@@ -150,6 +164,17 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $user->firstname }} {{ $user->lastname }}</td>
                                                 <td>{{ $user->phone }}</td>
+                                                <td>@if ($user->hasRole('sales'))
+                                                        Sales
+                                                    @endif
+                                                    @if ($user->hasRole('ceo'))
+                                                        CEO
+                                                    @endif
+                                                    @if ($user->hasRole('manager'))
+                                                        Manager
+                                                    @endif
+                                                </td>
+                                                <td>{{ $user->shop->name ?? '' }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $user->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button>

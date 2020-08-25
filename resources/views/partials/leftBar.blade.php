@@ -24,8 +24,8 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/sales">Sales</a></li>
-                        {{-- <li><a href="#">Invoices</a></li>
-                        <li><a href="/sales/add">Credit Sales</a></li>
+                         {{-- <li><a href="/sales/invoice">Invoices</a></li> --}}
+                        {{-- <li><a href="/sales/add">Credit Sales</a></li>
                         <li><a href="/credit/sales">Credit Sales</a></li> --}}
                     </ul>
                 </li>
@@ -74,42 +74,42 @@
                     </a>
                 </li>
 
-                {{-- <li>
-                    <a href="javaScript:void();">
-                      <img src="{{ asset('assets/images/svg-icon/dashboard.sv') }}g" class="img-fluid" alt="dashboard"><span>Customer Management</span><i class="feather icon-chevron-right pull-right"></i>
-                    </a>
-                    <ul class="vertical-submenu">
-                        {{-- <li><a href="/stocks">Category</a></li> 
-                        <li><a href="/stocks">Items</a></li>
-                    </ul>
-                </li> --}}
-
+                @role('ceo','manager')
                 <li>
                     <a href="javaScript:void();">
                       <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>Financial Reports</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/transactions">All Transactions</a></li>
-                        <li><a href="cash/movement">Cash Movement</a></li>
+                        <li><a href="/cash/movement">Cash Movement</a></li>
                         <li><a href="/transactions">Weekly Report</a></li>
                     </ul>
                 </li>
+                @endrole
 
-                {{-- @role('ceo','manager') --}}
+                <li>
+                    <a href="/customers">
+                        <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid" alt="widgets"><span>Customers</span>
+                    </a>
+                </li>
+
+                @role('ceo','manager')
                 <li>
                     <a href="/shops">
                         <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid" alt="widgets"><span>Shops</span>
                     </a>
                 </li>
-                {{-- @endrole --}}
+                @endrole
 
+                @role('ceo','manager')
                 <li>
                     <a href="/banks">
                         <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid" alt="widgets"><span>Banks</span>
                     </a>
                 </li>
+                @endrole
 
-                {{-- @role('ceo','manager') --}}
+                @role('ceo','manager')
                 <li>
                     <a href="javaScript:void();">
                       <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>User Management</span><i class="feather icon-chevron-right pull-right"></i>
@@ -118,7 +118,7 @@
                         <li><a href="/users">User</a></li>
                     </ul>
                 </li>
-                {{-- @endrole --}}
+                @endrole
 
             </ul>
         </div>

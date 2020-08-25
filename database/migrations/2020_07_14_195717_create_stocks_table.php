@@ -19,7 +19,9 @@ class CreateStocksTable extends Migration
             $table->integer('quantity');
             $table->integer('category_id')->nullable();
             $table->string('name');
-            $table->string('price');
+            $table->string('cost_price');
+            $table->string('selling_price');
+            $table->integer('shortage_qty')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

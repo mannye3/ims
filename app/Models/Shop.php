@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Stock;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +21,10 @@ class Shop extends Model
     public function stocks()
     {
         return $this->hasMany(Stock::class);
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class, 'shop_id');
     }
 }

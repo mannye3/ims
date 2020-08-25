@@ -77,17 +77,17 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                                 <div class="dropdown-item">
                                                     <div class="profilename">
-                                                      <h5>John Doe</h5>
+                                                      <h5>{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="userbox">
                                                     <ul class="list-unstyled mb-0">
-                                                        <li class="media dropdown-item">
+                                                        {{-- <li class="media dropdown-item">
                                                             <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/user.svg') }}" class="img-fluid" alt="user">My Profile</a>
                                                         </li>
                                                         <li class="media dropdown-item">
                                                             <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">Email</a>
-                                                        </li>                                                        
+                                                        </li>                                                         --}}
                                                         <li class="media dropdown-item">
                                                             <a href="{{ route('logout') }}" class="profile-icon" onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">

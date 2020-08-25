@@ -67,7 +67,7 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">DASHBOARD</h4>
+                        <h4 class="page-title"><strong>{{ auth()->user()->shop->name ?? '' }}</strong> DASHBOARD</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         {{-- <div class="widgetbar">
@@ -131,6 +131,7 @@
                  {{-- row --}}
                 
                 <!-- Start row -->
+                @role('ceo','manager')
                 <div class="row"> 
                     
                     <div class="col-lg-6 col-xl-3">
@@ -242,6 +243,7 @@
                     <!-- End col -->
                 </div>
                 <!-- End row -->
+                @endrole    
 
                 {{-- Next Line --}}
 
@@ -476,16 +478,17 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($lowStock as $item)
-
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->shop->name }}</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->quantity }}</td>
-                                                <td>
-                                                    <span class="badge badge-danger-inverse py-2 px-3 font-12">Restock</span>
-                                                </td>
-                                            </tr>
+                                                @if($item->quantity <= $item->shortage_qty)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->shop->name }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->quantity }}</td>
+                                                    <td>
+                                                        <span class="badge badge-danger-inverse py-2 px-3 font-12">Restock</span>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                                 
                                             @endforeach
                                                                                        

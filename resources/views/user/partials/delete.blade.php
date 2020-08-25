@@ -16,7 +16,7 @@
 
                         @method('DELETE')
 
-                        <h5><strong>Are you sure you want to delete this bank details</strong> </h5>
+                        <h5><strong>Are you sure you want to delete this user's details</strong> </h5>
                         
                 </div>
                 <div class="modal-footer">

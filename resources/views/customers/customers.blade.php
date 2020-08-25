@@ -35,11 +35,11 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">Stocks</h4>
+                        <h4 class="page-title">Customers</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
-                            <button class="btn btn-success-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add New Shop</button>
+                            <button class="btn btn-success-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add New Customer</button>
                         </div>                        
                     </div>
                 </div>          
@@ -57,71 +57,44 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="varying-modal-label">New Stock</h5>
+                                    <h5 class="modal-title" id="varying-modal-label">New customer</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
 
-                                    <form action="/stocks" method="POST">
+                                    <form action="/customers" method="POST">
                                         @csrf
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Shop:</label>
-                                                    <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
-                                                        {{-- <option>--Select Shop --</option> --}}
-                                                        @if (auth()->user()->shop)
-                                                            <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
-                                                        @else
-                                                        <option>--Select Shop --</option>
-                                                            @foreach ($shops as $shop)
-                                                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
+                                                    <label for="recipient-name" class="col-form-label">Firstname:</label>
+                                                    <input style="border-color:#9794af;" name="firstname" type="text" class="form-control" id="recipient-name" required>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Quantity:</label>
-                                                    <input style="border-color:#9794af;" name="quantity" type="number" class="form-control" required>
+                                                    <label for="recipient-name" class="col-form-label">Lastname:</label>
+                                                    <input style="border-color:#9794af;" name="lastname" type="text" class="form-control" id="recipient-name" required>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Shortage Quantity:</label>
-                                                    <input style="border-color:#9794af;" name="shortage_qty" type="number" class="form-control" required>
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Item:</label>
-                                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" id="recipient-name" required>
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Cost Price:</label>
-                                                    <input style="border-color:#9794af;" name="cost_price" type="number" class="form-control" required>
+                                                    <label for="recipient-name" class="col-form-label">Phone:</label>
+                                                    <input style="border-color:#9794af;" name="phone" type="number" class="form-control" id="recipient-name" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Selling Price:</label>
-                                                    <input style="border-color:#9794af;" name="selling_price" type="number" class="form-control" required>
+                                                    <label for="recipient-name" class="col-form-label">Address:</label>
+                                                    <input style="border-color:#9794af;" name="address" type="text" class="form-control" id="recipient-name" required>
                                                 </div>
                                             </div>
+
                                         </div>
                                         
                                 </div>
@@ -151,34 +124,30 @@
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Shop</th>
                                             <th>Name</th>
-                                            <th>Quantity</th>
-                                            <th>Unit Price</th>
-                                            <th>Selling Price</th>
+                                            <th>Location</th>
+                                            <th>Address</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        @foreach ($allStock as $stock)
+                                        @foreach ($customers as $customer)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $stock->shop->name }}</td>
-                                                <td>{{ $stock->name }}</td>
-                                                <td>{{ $stock->quantity }}</td>
-                                                <td>₦{{ $stock->cost_price }}</td>
-                                                <td>₦{{ $stock->selling_price }}</td>
+                                                <td>{{ $customer->firstname }} {{ $customer->lastname }}</td>
+                                                <td>{{ $customer->phone }}</td>
+                                                <td>{{ $customer->address }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $customer->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal{{ $customer->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
                                                 </td>
                                             </tr>
 
 
-                                            @include('stock.partials.edit_stock', [$stock, $shops])
+                                            @include('customers.partials.edit', $customer)
 
-                                            @include('stock.partials.delete_stock', $stock)
+                                            @include('customers.partials.delete', $customer)
 
 
                                         @endforeach

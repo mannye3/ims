@@ -51,10 +51,30 @@
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Role:</label>
                                     <select style="border-color:#9794af;" name="role" class="form-control" required>
-                                        <option>{{ $user->role }}</option>
+                                        <option>@if ($user->hasRole('sales'))
+                                            Sales
+                                        @endif
+                                        @if ($user->hasRole('ceo'))
+                                            CEO
+                                        @endif
+                                        @if ($user->hasRole('manager'))
+                                            Manager
+                                        @endif</option>
                                         <option value='user'> Sales Person</option>
                                         <option value="admin">Manager</option>
                                         <option value="super_admin">CEO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Shop Assigned:</label>
+                                    <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
+                                        <option value="{{ $user->shop->id ?? '' }}">{{ $user->shop->name ?? '' }}</option>
+                                        @foreach ($shops as $shop)
+                                        <option value='{{ $shop->id }}'> {{ $shop->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
