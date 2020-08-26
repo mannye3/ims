@@ -67,24 +67,40 @@
                                     <form action="/expenses" method="POST">
                                         @csrf
                                         <div class="row">
-
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="col-form-label">Reason:</label>
                                                     <input style="border-color:#9794af;" name="reason" type="text" class="form-control" required>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Shop:</label>
+                                                    <select style="border-color:#9794af;" name="shop_id" wire:model="stock_id" type="text" class="form-control" id="recipient-name">
+                                                        @if (auth()->user()->shop)
+                                                            <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
+                                                        @else    
+                                                            <option>-- Choose Shop --</option>
+                                                            @foreach ($shops as $shop)
+                                                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="col-form-label">Amount:</label>
                                                     <input style="border-color:#9794af;" name="amount" type="number" class="form-control" required>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="col-form-label">Date:</label>
                                                     <input style="border-color:#9794af;" name="date" type="date" class="form-control" required>

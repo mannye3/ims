@@ -24,9 +24,7 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/sales">Sales</a></li>
-                         {{-- <li><a href="/sales/invoice">Invoices</a></li> --}}
-                        {{-- <li><a href="/sales/add">Credit Sales</a></li>
-                        <li><a href="/credit/sales">Credit Sales</a></li> --}}
+                        <li><a href="/refunds">Sales Refund</a></li> 
                     </ul>
                 </li>
                 

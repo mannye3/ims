@@ -48,12 +48,12 @@ class SaleController extends Controller
             $totalCost += $cost;
         }
 
-        $stocks = Stock::where('shop_id', auth()->user()->shop_id)
+        $subStocks = Stock::where('shop_id', auth()->user()->shop_id)
                         ->where('quantity', '>', 0)
                         ->get();
 
 
-        return view('sales.make_sales', compact('shops', 'stocks', 'orders', 'totalCost'));
+        return view('sales.make_sales', compact('shops', 'stocks', 'orders', 'totalCost', 'subStocks'));
     }
 
 

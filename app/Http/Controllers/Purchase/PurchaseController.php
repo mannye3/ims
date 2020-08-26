@@ -77,7 +77,7 @@ class PurchaseController extends Controller
             'user_id' => auth()->user()->id,
             'stock_id' => $request->stock_id,
             'quantity' => $request->quantity,
-            'price' => $stock->price,
+            'price' => $stock->selling_price,
             // 'reference' => $reference
         ]);
 

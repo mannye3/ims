@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Expense;
 
+use App\Models\Shop;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,8 +23,9 @@ class ExpenseController extends Controller
     {
        // Get Shop
        $expenses = Expense::latest()->get();
+       $shops = Shop::all();
 
-       return view('expenses.expenses', compact('expenses')); 
+       return view('expenses.expenses', compact('expenses', 'shops')); 
     }
 
 
@@ -39,6 +41,7 @@ class ExpenseController extends Controller
             'reason' => $request->reason,
             'amount' => $request->amount,
             'date' => $request->date,
+            'shop_id' => $request->shop_id,
             'user_id' => auth()->user()->id
         ]);
 

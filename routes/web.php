@@ -89,6 +89,8 @@ Route::delete('/sales/invoice/{reference}', 'Sales\SaleController@invoice')->nam
 
 Route::get('/credit/sales', 'Sales\SaleController@creditSales')->name('credit.sales');
 
+Route::resource('/refunds', 'Sales\SalesRefundController');
+
     /**** PURCHASE ****/
 Route::get('/purchase', 'Purchase\PurchaseController@index')->name('purchase.list');
 Route::get('/purchase/details/{reference}', 'Purchase\PurchaseController@purchaseDetails')->name('purchase.details');

@@ -2,42 +2,6 @@
     <div class="row">
         <!-- Start col -->
 
-        {{-- <div class="col-lg-12 col-xl-12">
-            <div class="card m-b-30">
-                <div class="card-body">                                
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Shop:</label>
-                                    <select style="border-color:#9794af;" type="text" class="form-control" id="recipient-name">
-                                        <option>-- Select Shop --</option>
-                                        @foreach ($shops as $shop)
-                                            <option value="">{{ $shop->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Supplier:</label>
-                                    <select style="border-color:#9794af;" type="text" class="form-control" id="recipient-name">
-                                        <option>-- Select Shop --</option>
-                                        @foreach ($shops as $shop)
-                                            <option value="">{{ $shop->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </form>                           
-                </div>
-            </div>
-                  
-        </div> --}}
-
-
         <div class="col-lg-4 col-xl-4">
             <div class="card m-b-30">
                 <div class="card-header">                                
@@ -54,10 +18,17 @@
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Product:</label>
                             <select style="border-color:#9794af;" name="stock_id" wire:model="stock_id" type="text" class="form-control" id="recipient-name">
-                                <option>-- Select Shop --</option>
-                                @foreach ($stocks as $stock)
-                                    <option value="{{ $stock->id }}">{{ $stock->name }}</option>
-                                @endforeach
+                                @if (auth()->user()->shop)
+                                    <option>-- Select Stock --</option>
+                                    @foreach ($subStocks as $stock)
+                                        <option value="{{ $stock->id }}">{{ $stock->name }}</option>
+                                    @endforeach
+                                @else
+                                    <option>-- Select Stock --</option>
+                                    @foreach ($stocks as $stock)
+                                        <option value="{{ $stock->id }}">{{ $stock->name }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
