@@ -34,7 +34,7 @@
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="/purchase">Puchase</a></li>
-                        <li><a href="/carriage_inward">Carriage Inward</a></li>
+                        {{-- <li><a href="/carriage_inward">Carriage Inward</a></li> --}}
                         {{-- <li><a href="/purchase">Ge
                             neral Puchase</a></li> --}}
                     </ul>
