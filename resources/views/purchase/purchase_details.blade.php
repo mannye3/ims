@@ -228,6 +228,54 @@
                     <!-- End col -->
                 </div>
                 <!-- End row -->
+
+
+
+                <!-- Start col -->
+                <div class="col-lg-12">
+                    <div class="card m-b-30">
+                        <div class="card-header">
+                            <h5 class="card-title">Carriage Inward</h5>
+                        </div>
+                        <div class="card-body">
+                            {{-- <h6 class="card-subtitle">Export data to Copy, CSV, Excel & Note.</h6> --}}
+                            <div class="table-responsive">
+                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th> Purpose</th>
+                                        <th>Amount </th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach ($carriage as $valie)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $valie->title }}</td>
+                                            <td>{{ $valie->price }}</td>
+                                            <td>{{ $valie->created_at }}</td>
+                                            <td>
+                                                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $bank->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button> --}}
+                                                {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal{{ $bank->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button> --}}
+                                            </td>
+                                        </tr>
+
+
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </>
+                <!-- End col -->
+
+
             </div>
             <!-- End Contentbar -->
             

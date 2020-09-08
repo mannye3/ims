@@ -46,10 +46,11 @@ class PurchaseController extends Controller
 
         $batch = PurchaseBatch::where('reference_no', $reference)->first();
 
-        $carriage = CarriageInward::where('reference_no', $reference)->pluck('price');
-        $sumCarriage = $carriage->sum();
+        $carriage = CarriageInward::where('reference_no', $reference)->get();
+        $carriagePrice = CarriageInward::where('reference_no', $reference)->pluck('price');
+        $sumCarriage = $carriagePrice->sum();
 
-        return view('purchase.purchase_details', compact('purchase', 'batch', 'sumCarriage'));
+        return view('purchase.purchase_details', compact('purchase', 'batch', 'sumCarriage', 'carriage'));
     }
 
 

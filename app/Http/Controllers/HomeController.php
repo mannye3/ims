@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Shop;
 use App\Models\User;
 use App\Models\Stock;
 use App\Models\Expense;
@@ -77,13 +78,16 @@ class HomeController extends Controller
         // Users
         $staffs = User::all()->count();
 
+        $shops = Shop::all()->count();
+
+
         // Cash Payment
         // $cashPayment = SaleBatch::where('')->pluck('amount_paid');
         
 
         return view('welcome', compact(
             'stockValue', 'stockQuantity', 'staffs', 'lowStock',
-            'todayExpenses', 'allExpenses', 'todayRevenue', 'allRevenue'
+            'todayExpenses', 'allExpenses', 'todayRevenue', 'allRevenue', 'shops'
         ));
     }
 }

@@ -82,7 +82,7 @@
                     <ul class="vertical-submenu">
                         <li><a href="/transactions">All Transactions</a></li>
                         <li><a href="/cash/movement">Cash Movement</a></li>
-                        <li><a href="/transactions">Weekly Report</a></li>
+                        {{-- <li><a href="/transactions">Weekly Report</a></li> --}}
                     </ul>
                 </li>
                 @endrole

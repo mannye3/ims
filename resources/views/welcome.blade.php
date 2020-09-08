@@ -153,7 +153,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span>
+                                        {{-- <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span>
+                                        {{-- <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-success"></i>{{ $stockQuantity }}</span>
+                                        {{-- <span class="badge badge-success"></i>{{ $stockQuantity }}</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span>
+                                        {{-- <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span>
+                                        {{-- <span class="badge badge-success"><i class="feather icon-trending-up mr-1"></i>25%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +297,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span>
+                                        {{-- <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>23%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -324,7 +324,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-success"></i>{{ $stockQuantity }}</span>
+                                        {{-- <span class="badge badge-success"></i>{{ $stockQuantity }}</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -340,8 +340,8 @@
                                         <span class="action-icon badge badge-primary-inverse mr-0"><i class="feather icon-user"></i></span>
                                     </div>
                                     <div class="col-7 text-right">
-                                        <h5 class="card-title font-14">Staffs</h5>
-                                        <h4 class="mb-0">{{ $staffs }}</h4>
+                                        <h5 class="card-title font-14">Shops</h5>
+                                        <h4 class="mb-0">{{ $shops }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +351,7 @@
                                         <span class="font-13"></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span>
+                                        {{-- <span class="badge badge-warning"><i class="feather icon-trending-down mr-1"></i>10%</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -395,48 +395,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>John Doe</td>
-                                                <td>5</td>
-                                                <td>99</td>
-                                                <td>99</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jimmy Simpson</td>
-                                                <td>5</td>
-                                                <td>98</td>
-                                                <td>98</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lorea Johnson</td>
-                                                <td>5</td>
-                                                <td>97</td>
-                                                <td>97</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Merry Aniston</td>
-                                                <td>5</td>
-                                                <td>96</td>
-                                                <td>96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Jessica Perry</td>
-                                                <td>5</td>
-                                                <td>95</td>
-                                                <td>95</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Maria Salkova</td>
-                                                <td>5</td>
-                                                <td>94</td>
-                                                <td>434</td>
-                                            </tr>                                            
+                                                                                
                                         </tbody>
                                     </table>
                                 </div>
