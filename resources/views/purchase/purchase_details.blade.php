@@ -68,7 +68,7 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">New Order</h4>
+                        <h4 class="page-title">Purchase Details</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
@@ -83,7 +83,7 @@
                 <div class="row">
                     <!-- Start col -->
                     <div class="col-lg-12 col-xl-12">
-                        <div class="card m-b-30">
+                        {{-- <div class="card m-b-30">
                             <div class="card-header">                                
                                 <div class="row align-items-center">
                                     <div class="col-7">
@@ -122,10 +122,10 @@
                                     </div>
                                 </div>                                
                             </div>
-                        </div> 
+                        </div>  --}}
                         <div class="card m-b-30">
                             <div class="card-header">
-                                <h5 class="card-title">Order Items</h5>
+                                <h5 class="card-title">Reference NO : {{ $batch->reference_no }}</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive ">
@@ -181,20 +181,16 @@
                                             <table class="table table-borderless text-right">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Sub Total :</td>
-                                                        <td>$1000.00</td>
+                                                        <td style="color: red">Carriage Inward :</td>
+                                                        <td style="color: red">${{ $sumCarriage }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Shipping :</td>
-                                                        <td>$0.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Tax(18%) :</td>
-                                                        <td>$180.00</td>
+                                                        <td>Amount Paid :</td>
+                                                        <td>${{ $batch->amount_paid }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-black f-w-7 font-18">Amount :</td>
-                                                        <td class="text-black f-w-7 font-18">$1180.00</td>
+                                                        <td class="text-black f-w-7 font-18">${{ $batch->total_cost }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -203,9 +199,9 @@
                                 </div>
                             </div>
                             <div class="card-footer text-right">
-                                <button type="button" class="btn btn-primary-rgba my-1"><i class="feather icon-plus mr-2"></i>Add Product</button>
+                                {{-- <button type="button" class="btn btn-primary-rgba my-1"><i class="feather icon-plus mr-2"></i>Add Product</button>
                                 <button type="button" class="btn btn-success-rgba my-1"><i class="feather icon-repeat mr-2"></i>Refund</button>
-                                <button type="button" class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Cancel</button>
+                                <button type="button" class="btn btn-danger-rgba my-1"><i class="feather icon-trash mr-2"></i>Cancel</button> --}}
                             </div>
                         </div>
                         {{-- <div class="card m-b-30">

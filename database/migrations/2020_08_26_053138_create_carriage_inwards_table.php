@@ -15,6 +15,7 @@ class CreateCarriageInwardsTable extends Migration
     {
         Schema::create('carriage_inwards', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->string('title');
             $table->string('price');
             $table->integer('purchase_id');

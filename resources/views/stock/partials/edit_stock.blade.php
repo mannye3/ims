@@ -21,10 +21,14 @@
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label"> Shop:</label>
                                     <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
-                                        <option value="{{ $stock->shop->id }}">{{ $stock->shop->name }}</option>
-                                        @foreach ($shops as $shop)
-                                            <option value="{{ $shop->id }}">{{ $shop->name }}</option>
-                                        @endforeach
+                                        @if (auth()->user()->shop)
+                                            <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
+                                        @else
+                                        <option>--Select Shop --</option>
+                                            @foreach ($shops as $shop)
+                                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>

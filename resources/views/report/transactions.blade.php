@@ -68,12 +68,11 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">Purchase</h4>
+                        <h4 class="page-title">All Transactions</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
-                            <a href="/purchase/create" class="btn btn-success-rgba"><i class="feather icon-plus mr-2"></i>Add New</a>
-                            {{-- <button class="btn btn-warning-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add Bulk Item</button> --}}
+                            {{-- <button class="btn btn-success-rgba" data-toggle="modal" data-target="#varying-modal" data-whatever="@fat"><i class="feather icon-plus mr-2"></i>Add New Bank</button> --}}
                         </div>                        
                     </div>
                 </div>          
@@ -83,52 +82,41 @@
             <div class="contentbar">                
                 <!-- Start row -->
                 <div class="row">
+
                         
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
                             <div class="card-header">
-                                <h5 class="card-title">Data Export Table</h5>
+                                {{-- <h5 class="card-title">Data Export Table</h5> --}}
                             </div>
                             <div class="card-body">
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel & Note.</h6>
                                 <div class="table-responsive">
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Reference</th>
-                                            <th>Payment method</th>
-                                            <th>Total Cost</th>
-                                            <th>Amount Paid</th>
-                                            <th>Date</th>
-                                            <th>Carriage Inward</th>
-                                            <th>Salary</th>
-                                        </tr>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Reference Number</th>
+                                                <th>Payment Method</th>
+                                                <th>Total Cost</th>
+                                                <th>Amount Paid</th>
+                                                <th>Actions</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-
-                                            @foreach ($purchases as $purchase)
+                                            @foreach ($sales as $sale)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $purchase->reference_no }}</td>
-                                                <td>{{ $purchase->payment_method }}</td>
-                                                <td>{{ $purchase->total_cost }}</td>
-                                                <td>{{ $purchase->amount_paid }}</td>
-                                                <td>{{ $purchase->created_at }}</td>
+                                                <td>{{ $sale->reference_no }}</td>
+                                                <td>{{ $sale->payment_method }}</td>
+                                                <td>{{ $sale->total_cost }}</td>
+                                                <td>{{ $sale->amount_paid }}</td>
                                                 <td>
-                                                    <button class="btn btn-info" data-toggle="modal" data-target="#carriage{{ $purchase->reference_no }}" data-whatever="@fat">Carriage Inward</button>
-                                                </td>
-                                                <td>
-                                                    <a href="/purchase/details/{{ $purchase->reference_no }}" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
+                                                    <a href="/sales/details/{{ $sale->reference_no }}" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
                                                     <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
                                                 </td>
-                                            </tr>
-
-
-                                            @include('purchase.partials.carriage_inward', [$purchase])
-
-
+                                            </tr>   
                                             @endforeach
 
                                         </tbody>

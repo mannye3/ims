@@ -16,10 +16,14 @@
                         <h5><strong>Branch shop is made for</strong> </h5>
                         <label for="recipient-name" class="col-form-label">Branch:</label>
                         <select style="border-color:#9794af;" type="number" class="form-control" name="shop_id">
+                            @if (auth()->user()->shop)
+                                <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
+                            @else
                             <option>--Select Shop --</option>
-                            @foreach ($shops as $shop)
-                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
-                            @endforeach
+                                @foreach ($shops as $shop)
+                                    <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                @endforeach
+                            @endif
                         </select>
                         <hr>
                         <label for="recipient-name" class="col-form-label">Payment Method:</label>

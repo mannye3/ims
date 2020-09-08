@@ -9,6 +9,7 @@ use App\Models\TempOrder;
 use App\Models\PrePurchase;
 use Illuminate\Http\Request;
 use App\Models\PurchaseBatch;
+use App\Models\CarriageInward;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -43,7 +44,12 @@ class PurchaseController extends Controller
     {
         $purchase = Purchase::where('reference_no', $reference)->get();
 
-        return view('purchase.purchase_details', compact('purchase'));
+        $batch = PurchaseBatch::where('reference_no', $reference)->first();
+
+        $carriage = CarriageInward::where('reference_no', $reference)->pluck('price');
+        $sumCarriage = $carriage->sum();
+
+        return view('purchase.purchase_details', compact('purchase', 'batch', 'sumCarriage'));
     }
 
 
@@ -125,12 +131,12 @@ class PurchaseController extends Controller
         $reference = str_random(15);
 
         foreach ($purchase as $value) {
-            $stock = Stock::where('id', $value->stock_id)
-                            // ->where('shop_id', $value->shop_id)
-                            ->first();              
-            $totalQnty = $stock->quantity + $value->quantity;
-            // Update quantity
-            $stock->update(['quantity' => $totalQnty]);
+            // $stock = Stock::where('id', $value->stock_id)
+            //                 // ->where('shop_id', $value->shop_id)
+            //                 ->first();              
+            // $totalQnty = $stock->quantity + $value->quantity;
+            // // Update quantity
+            // $stock->update(['quantity' => $totalQnty]);
 
             // Save Purchase
             Purchase::create([

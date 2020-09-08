@@ -102,6 +102,12 @@ Route::delete('/purchase/remove/{id}', 'Purchase\PurchaseController@removeProduc
 Route::delete('/purchase/reset', 'Purchase\PurchaseController@resetPurhase')->name('purchase.clear');
 
 
+Route::post('/carriage_inward/{reference}', 'Purchase\CarriageInwardController@store');
+
+
+Route::get('/transactions', 'Report\ReportController@index');
+
+
     /**** STOCK ****/
 Route::resource('/stocks', 'Stock\StockController');
 // Route::get('/stock/create', 'Stock\StockController@create')->name('stock.create');
