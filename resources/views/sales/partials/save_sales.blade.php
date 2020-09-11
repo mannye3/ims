@@ -13,7 +13,15 @@
 
                     <form action="/sales/add" method="POST">
                         @csrf
-                        <h5><strong>Branch shop is made for</strong> </h5>
+                        {{-- <h5><strong>Branch shop is made for</strong> </h5> --}}
+                        <label for="recipient-name" class="col-form-label">Customer:</label>
+                        <select style="border-color:#9794af;" class="form-control" name="customer_id">
+                            <option>-- Select Shop --</option>
+                            @foreach ($customers as $customer)
+                                <option value="{{ $customer->id }}">{{ $customer->firstname }} {{ $customer->lastname }}</option>
+                            @endforeach
+                        </select>
+                        <hr>
                         <label for="recipient-name" class="col-form-label">Branch:</label>
                         <select style="border-color:#9794af;" type="number" class="form-control" name="shop_id">
                             @if (auth()->user()->shop)

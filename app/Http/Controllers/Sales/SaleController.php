@@ -6,6 +6,7 @@ use App\Models\Sale;
 use App\Models\Shop;
 use App\Models\Stock;
 use App\Models\PreSale;
+use App\Models\Customer;
 use App\Models\SaleBatch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,7 @@ class SaleController extends Controller
         $shops = Shop::all();
         $stocks = Stock::where('quantity', '>', 0)->get();
         $orders = PreSale::where('user_id', auth()->user()->id)->get();
+        $customers = Customer::all();
 
         $totalCost = 0;
         foreach ($orders as $value) {
@@ -53,7 +55,7 @@ class SaleController extends Controller
                         ->get();
 
 
-        return view('sales.make_sales', compact('shops', 'stocks', 'orders', 'totalCost', 'subStocks'));
+        return view('sales.make_sales', compact('shops', 'stocks', 'orders', 'totalCost', 'subStocks', 'customers'));
     }
 
 
@@ -169,7 +171,8 @@ class SaleController extends Controller
             'total_cost' => $request->total_cost,
             'reference_no' => $reference,
             'payment_method' => $request->paymentMethod,
-            'amount_paid' => $request->amount_paid
+            'amount_paid' => $request->amount_paid,
+            'customer_id' => $request->customer_id
         ]);
 
         if ($request->total_cost < $request->amount_paid) {
@@ -193,6 +196,8 @@ class SaleController extends Controller
     {
         return $totalCost = SaleBatch::where('amount_paid', '<', 'total_cost')->get();
 
+        $customers = Customer::all();
+
         // $creditSales = [];
         foreach ($totalCost as $cost) {
             return $cost;
@@ -201,7 +206,7 @@ class SaleController extends Controller
         }
         return $creditSales;
 
-        return view('sales.credit_sales', compact('creditSales'));
+        return view('sales.credit_sales', compact('creditSales', 'customers'));
     }
 
     /**

@@ -90,11 +90,11 @@
                                         <div class="row">
                                             <div class="col-12 col-md-7 col-lg-7">
                                                 <div class="invoice-logo">
-                                                    <img src="assets/images/logo.svg" class="img-fluid" alt="invoice-logo">
+                                                    <img src="{{ asset('assets/images/logo.svg') }}" class="img-fluid" alt="invoice-logo">
                                                 </div>
-                                                <h4>Orbiter Design Inc.</h4>
-                                                <p>The Complete Web Solutions Partner</p>
-                                                <p class="mb-0">21st Street, Titanium Tower, Times Square, Nevada Campus, New Jersey - 55986 USA.</p>
+                                                <h4>Sunec Electricals.</h4>
+                                                <p>Block 18 shop 20, Electrical section Alaba internationa</p>
+                                                <p class="mb-0">Lagos, Nigeria.</p>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-5">
                                                 {{-- <div class="invoice-name">

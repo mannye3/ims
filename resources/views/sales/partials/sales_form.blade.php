@@ -1,4 +1,6 @@
 <div>
+    <div></div>
+    
     <div class="row">
         <!-- Start col -->
 
@@ -170,7 +172,7 @@
 
                 {{-- Modals --}}
                 @include('sales.partials.reset_sales');
-                @include('sales.partials.save_sales');
+                @include('sales.partials.save_sales', [$customers]);
 
             </div>                  
         </div>
