@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Shop;
 use App\Models\Stock;
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Model;
 
 class SaleBatch extends Model
@@ -24,5 +25,10 @@ class SaleBatch extends Model
     public function shop()
     {
         return $this->belongsTo(Shop::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }

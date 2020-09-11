@@ -111,11 +111,11 @@
                                             <div class="col-sm-6 col-md-4 col-lg-4">
                                                 <div class="invoice-address">
                                                     <h6 class="mb-3">Bill to</h6>
-                                                    <h6 class="text-muted">Amy Adams</h6>
+                                                    <h6 class="text-muted">{{ $saleBatch->customer->firstname }} {{ $saleBatch->customer->lastname }}</h6>
                                                     <ul class="list-unstyled">
-                                                        <li>417 Redbud Drive, Manhattan Building, Whitestone, NY, New York-11357</li>  
-                                                        <li>+1-9876543210</li>  
-                                                        <li>amyadams@email.com</li>  
+                                                        <li>{{ $saleBatch->customer->address }}</li>  
+                                                        <li>{{ $saleBatch->customer->phone }}</li>  
+                                                        {{-- <li>amyadams@email.com</li>   --}}
                                                     </ul>
                                                 </div>
                                             </div>
