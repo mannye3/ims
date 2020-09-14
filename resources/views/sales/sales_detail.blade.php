@@ -111,10 +111,17 @@
                                             <div class="col-sm-6 col-md-4 col-lg-4">
                                                 <div class="invoice-address">
                                                     <h6 class="mb-3">Bill to</h6>
-                                                    <h6 class="text-muted">{{ $saleBatch->customer->firstname }} {{ $saleBatch->customer->lastname }}</h6>
+                                                    <h6 class="text-muted">
+                                                        <strong>Name : </strong>
+                                                        <u><i>{{ $saleBatch->customer->firstname }} {{ $saleBatch->customer->lastname }}</i>
+                                                        </u>
+                                                    </h6>
                                                     <ul class="list-unstyled">
-                                                        <li>{{ $saleBatch->customer->address }}</li>  
-                                                        <li>{{ $saleBatch->customer->phone }}</li>  
+                                                        <li>
+                                                            <strong>Address : </strong>
+                                                            <u><i>{{ $saleBatch->customer->address }}</i></u>
+                                                        </li>  
+                                                        <li><strong>Phone : </strong><u><i>{{ $saleBatch->customer->phone }}</i></u></li>  
                                                         {{-- <li>amyadams@email.com</li>   --}}
                                                     </ul>
                                                 </div>
