@@ -97,12 +97,12 @@
                                                 <p class="mb-0">Lagos, Nigeria.</p>
                                             </div>
                                             <div class="col-12 col-md-5 col-lg-5">
-                                                {{-- <div class="invoice-name">
-                                                    <h5 class="text-uppercase mb-3">Invoice</h5>
-                                                    <p class="mb-1">No : #98765</p>
-                                                    <p class="mb-0">15 July, 2019</p>
-                                                    <h4 class="text-success mb-0 mt-3">$1180</h4>
-                                                </div> --}}
+                                                <div class="invoice-name">
+                                                    {{-- <h5 class="text-uppercase mb-3">Invoice</h5> --}}
+                                                    <p class="mb-1">Invoice No : {{ $saleBatch->invoice_no }}</p>
+                                                    <p class="mb-0">Date : {{ $saleBatch->created_at->format('d/m/Y') }}</p>
+                                                    {{-- <h4 class="text-success mb-0 mt-3">$1180</h4> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div> 

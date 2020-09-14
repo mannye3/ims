@@ -22,6 +22,7 @@ class CreateSaleBatchesTable extends Migration
             $table->string('payment_method');
             $table->string('total_cost');
             $table->integer('customer_id');
+            $table->string('invoice_no');
             $table->string('amount_paid')->default(0);
             $table->timestamps();
         });
