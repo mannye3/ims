@@ -99,8 +99,8 @@
                                             <div class="col-12 col-md-5 col-lg-5">
                                                 <div class="invoice-name">
                                                     {{-- <h5 class="text-uppercase mb-3">Invoice</h5> --}}
-                                                    <p class="mb-1">Invoice No : {{ $saleBatch->invoice_no }}</p>
-                                                    <p class="mb-0">Date : {{ $saleBatch->created_at->format('d/m/Y') }}</p>
+                                                    <p class="mb-1"><strong>Invoice No :</strong> {{ $saleBatch->invoice_no }}</p>
+                                                    <p class="mb-0"><strong>Date :</strong> {{ $saleBatch->created_at->format('d/m/Y') }}</p>
                                                     {{-- <h4 class="text-success mb-0 mt-3">$1180</h4> --}}
                                                 </div>
                                             </div>
