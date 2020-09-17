@@ -113,15 +113,15 @@
                                                     <h6 class="mb-3">Bill to</h6>
                                                     <h6 class="text-muted">
                                                         <strong>Name : </strong>
-                                                        <u><i>{{ $saleBatch->customer->firstname }} {{ $saleBatch->customer->lastname }}</i>
+                                                        <u><i>{{ $saleBatch->customer->firstname ?? null }} {{ $saleBatch->customer->lastname ?? null }}</i>
                                                         </u>
                                                     </h6>
                                                     <ul class="list-unstyled">
                                                         <li>
                                                             <strong>Address : </strong>
-                                                            <u><i>{{ $saleBatch->customer->address }}</i></u>
+                                                            <u><i>{{ $saleBatch->customer->address ?? null }}</i></u>
                                                         </li>  
-                                                        <li><strong>Phone : </strong><u><i>{{ $saleBatch->customer->phone }}</i></u></li>  
+                                                        <li><strong>Phone : </strong><u><i>{{ $saleBatch->customer->phone ?? null }}</i></u></li>  
                                                         {{-- <li>amyadams@email.com</li>   --}}
                                                     </ul>
                                                 </div>
@@ -168,7 +168,7 @@
                                                     <tr>
                                                         <th scope="row">{{ $loop->iteration }}</th>
                                                         
-                                                        <td>{{ $item->stocks->name }}</td>
+                                                        <td>{{ $item->stocks->name ?? null }}</td>
                                                         <td>
                                                             {{ $item->quantity }}
                                                         </td>
@@ -190,9 +190,9 @@
                                         <div class="row">
                                             <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
                                                 <div class="order-note">
-                                                    <p class="mb-3"><span class="badge badge-info-inverse font-14">This is Free Shipping Order</span></p>
-                                                    <h6>Special Note for this order:</h6>
-                                                    <p>Please, Pack with product air bag and handle with care.</p>
+                                                    {{-- <p class="mb-3"><span class="badge badge-info-inverse font-14">This is Free Shipping Order</span></p> --}}
+                                                    {{-- <h6>Special Note for this order:</h6>
+                                                    <p>Please, Pack with product air bag and handle with care.</p> --}}
                                                 </div>
                                             </div>
                                             <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
@@ -219,7 +219,7 @@
                                     <div class="invoice-footer">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
-                                                <p class="mb-0">Thank yopu for your Business.</p>
+                                                <p class="mb-0">Thank you.</p>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="invoice-footer-btn">
