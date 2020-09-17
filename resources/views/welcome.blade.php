@@ -440,9 +440,9 @@
                                                 @if($item->quantity <= $item->shortage_qty)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->shop->name }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->quantity }}</td>
+                                                    <td>{{ $item->shop->name ?? null }}</td>
+                                                    <td>{{ $item->name ?? null }}</td>
+                                                    <td>{{ $item->quantity ?? nul }}</td>
                                                     <td>
                                                         <span class="badge badge-danger-inverse py-2 px-3 font-12">Restock</span>
                                                     </td>
