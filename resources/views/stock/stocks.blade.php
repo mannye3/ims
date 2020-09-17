@@ -164,11 +164,11 @@
                                         @foreach ($allStock as $stock)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $stock->shop->name }}</td>
-                                                <td>{{ $stock->name }}</td>
-                                                <td>{{ $stock->quantity }}</td>
-                                                <td>₦{{ $stock->cost_price }}</td>
-                                                <td>₦{{ $stock->selling_price }}</td>
+                                                <td>{{ $stock->shop->name ?? null }}</td>
+                                                <td>{{ $stock->name ?? null }}</td>
+                                                <td>{{ $stock->quantity ?? null }}</td>
+                                                <td>₦{{ $stock->cost_price ?? null }}</td>
+                                                <td>₦{{ $stock->selling_price ?? null }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-edit-2"></i></button>
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal{{ $stock->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
