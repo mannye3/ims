@@ -17,44 +17,64 @@
                         @method('PUT')
 
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label"> Shop:</label>
+        
+                                    @if (auth()->user()->shop)
                                     <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
-                                        @if (auth()->user()->shop)
-                                            <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
-                                        @else
-                                        <option>--Select Shop --</option>
+                                        <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
+                                    </select>
+                                    @else
+                                    <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
+                                        <option value="{{ $stock->shop_id }}">{{ $stock->shop->name }}</option>
                                             @foreach ($shops as $shop)
                                                 <option value="{{ $shop->id }}">{{ $shop->name }}</option>
                                             @endforeach
-                                        @endif
                                     </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Quantity:</label>
-                                    <input style="border-color:#9794af;" name="quantity" type="text" class="form-control" value="{{ $stock->quantity }}" required>
+                                    @endif
+                        
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Unit Price:</label>
-                                    <input style="border-color:#9794af;" name="price" type="text" class="form-control" value="{{ $stock->price }}" required>
+                                    <label for="recipient-name" class="col-form-label">Quantity:</label>
+                                    <input style="border-color:#9794af;" name="quantity" type="number" class="form-control" value="{{ $stock->quantity }}">
                                 </div>
                             </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Shortage Quantity:</label>
+                                    <input style="border-color:#9794af;" name="shortage_qty" type="number" class="form-control" value="{{ $stock->shortage_qty }}">
+                                </div>
+                            </div>
+
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Item:</label>
-                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" value="{{ $stock->name }}" required>
+                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" id="recipient-name" value="{{ $stock->name }}">
                                 </div>
                             </div>
 
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Cost Price:</label>
+                                    <input style="border-color:#9794af;" name="cost_price" type="number" class="form-control" value="{{ $stock->cost_price }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Selling Price:</label>
+                                    <input style="border-color:#9794af;" name="selling_price" type="number" class="form-control" value="{{ $stock->selling_price }}">
+                                </div>
+                            </div>
                         </div>
                         
                 </div>
