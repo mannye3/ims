@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="stocks/{{ $stock->id }}" method="POST">
+                    <form action="stocks/{{ $stock->id ? null }}" method="POST">
                         @csrf
 
                         @method('PUT')
@@ -23,13 +23,13 @@
         
                                     @if (auth()->user()->shop)
                                     <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
-                                        <option value="{{ auth()->user()->shop->id }}">{{ auth()->user()->shop->name }}</option>
+                                        <option value="{{ auth()->user()->shop->id ?? null }}">{{ auth()->user()->shop->name ?? null }}</option>
                                     </select>
                                     @else
                                     <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
-                                        <option value="{{ $stock->shop_id }}">{{ $stock->shop->name }}</option>
+                                        <option value="{{ $stock->shop_id ?? null }}">{{ $stock->shop->name ?? null }}</option>
                                             @foreach ($shops as $shop)
-                                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                                <option value="{{ $shop->id ?? null }}">{{ $shop->name ??null }}</option>
                                             @endforeach
                                     </select>
                                     @endif
@@ -40,14 +40,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Quantity:</label>
-                                    <input style="border-color:#9794af;" name="quantity" type="number" class="form-control" value="{{ $stock->quantity }}">
+                                    <input style="border-color:#9794af;" name="quantity" type="number" class="form-control" value="{{ $stock->quantity ?? null }}">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Shortage Quantity:</label>
-                                    <input style="border-color:#9794af;" name="shortage_qty" type="number" class="form-control" value="{{ $stock->shortage_qty }}">
+                                    <input style="border-color:#9794af;" name="shortage_qty" type="number" class="form-control" value="{{ $stock->shortage_qty ?? null }}">
                                 </div>
                             </div>
 
@@ -57,7 +57,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Item:</label>
-                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" id="recipient-name" value="{{ $stock->name }}">
+                                    <input style="border-color:#9794af;" name="name" type="text" class="form-control" id="recipient-name" value="{{ $stock->name ?? null }}">
                                 </div>
                             </div>
 
@@ -66,13 +66,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Cost Price:</label>
-                                    <input style="border-color:#9794af;" name="cost_price" type="number" class="form-control" value="{{ $stock->cost_price }}">
+                                    <input style="border-color:#9794af;" name="cost_price" type="number" class="form-control" value="{{ $stock->cost_price ?? null }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Selling Price:</label>
-                                    <input style="border-color:#9794af;" name="selling_price" type="number" class="form-control" value="{{ $stock->selling_price }}">
+                                    <input style="border-color:#9794af;" name="selling_price" type="number" class="form-control" value="{{ $stock->selling_price ?? null }}">
                                 </div>
                             </div>
                         </div>
