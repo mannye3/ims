@@ -173,7 +173,7 @@ class SaleController extends Controller
             'payment_method' => $request->paymentMethod,
             'amount_paid' => $request->amount_paid,
             'customer_id' => $request->customer_id,
-            'invoice_no' => mt_rand(100000, 99999999),
+            'invoice_no' => 'INV-'.mt_rand(100000, 999999999),
         ]);
 
         if ($request->total_cost < $request->amount_paid) {
