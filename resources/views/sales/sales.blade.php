@@ -58,7 +58,7 @@
                                         <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Reference Number</th>
+                                            <th>Invoice Number</th>
                                             <th>Payment Method</th>
                                             <th>Total Cost</th>
                                             <th>Amount Paid</th>
@@ -70,7 +70,7 @@
                                         @foreach ($sales as $sale)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $sale->reference_no }}</td>
+                                            <td>{{ $sale->invoice_no }}</td>
                                             <td>{{ $sale->payment_method }}</td>
                                             <td>{{ $sale->total_cost }}</td>
                                             <td>{{ $sale->amount_paid }}</td>
