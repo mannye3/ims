@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="stocks/{{ $stock->id ? null }}" method="POST">
+                    <form action="stocks/{{ $stock->id ?? null }}" method="POST">
                         @csrf
 
                         @method('PUT')
