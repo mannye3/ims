@@ -90,9 +90,9 @@
                                         <div class="row">
                                             <div class="col-12 col-md-7 col-lg-7">
                                                 <div class="invoice-logo">
-                                                    <img src="{{ asset('assets/images/logo.svg') }}" class="img-fluid" alt="invoice-logo">
+                                                    <img src="{{ asset('assets/images/logo.sv') }}" class="img-fluid" alt="invoice-logo">
                                                 </div>
-                                                <h4>Sunec Electricals.</h4>
+                                                <h4>Suntec Electricals.</h4>
                                                 <p>Block 18 shop 20, Electrical section Alaba internationa</p>
                                                 <p class="mb-0">Lagos, Nigeria.</p>
                                             </div>

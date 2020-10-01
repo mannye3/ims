@@ -29,7 +29,7 @@
                                     <select style="border-color:#9794af;" name="shop_id" class="form-control" required>
                                         <option value="{{ $stock->shop_id ?? null }}">{{ $stock->shop->name ?? null }}</option>
                                             @foreach ($shops as $shop)
-                                                <option value="{{ $shop->id ?? null }}">{{ $shop->name ??null }}</option>
+                                                <option value="{{ $shop->id ?? null }}">{{ $shop->name ?? null }}</option>
                                             @endforeach
                                     </select>
                                     @endif
