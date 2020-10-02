@@ -113,8 +113,6 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                 
-                                    @include('sales.partials.remove_stock');
-
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>
@@ -131,6 +129,8 @@
                                         </td>
                                         <td class="text-right">₦{{ number_format($order->price * $order->quantity) }}</td>
                                     </tr>
+
+                                    @include('sales.partials.remove_stock', [$order]);
 
                                     @include('sales.partials.price_modal');
 

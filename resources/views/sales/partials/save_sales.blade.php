@@ -37,7 +37,7 @@
                         <label for="recipient-name" class="col-form-label">Payment Method:</label>
                         <select style="border-color:#9794af;" type="number" class="form-control" name="paymentMethod">
                             <option value="cash">Cash</option>
-                            <option value="pos">POS</option>
+                            <option value="credit">Credit</option>
                             <option value="transfer">Bank Transfer</option>
                         </select>
 
