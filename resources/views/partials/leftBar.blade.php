@@ -64,7 +64,7 @@
                       <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid" alt="dashboard"><span>Creditors</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="#">Creditors</a></li>
+                        <li><a href="/creditors">Creditors</a></li>
                     </ul>
                 </li>
 

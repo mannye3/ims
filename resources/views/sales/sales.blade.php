@@ -57,7 +57,7 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>NO</th>
                                             <th>Invoice Number</th>
                                             <th>Payment Method</th>
                                             <th>Total Cost</th>

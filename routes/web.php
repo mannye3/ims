@@ -129,3 +129,6 @@ Route::resource('/customers', 'Customer\CustomerController');
 
 
 Route::get('/cash/movement', 'CashMovement\CashMovementController@index');
+
+    /*** CREDITORS ***/
+Route::get('/creditors', 'Creditor\CreditorController@index');
