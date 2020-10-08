@@ -68,11 +68,10 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">Datatable</h4>
+                        <h4 class="page-title">Creditors</h4>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
-                            <button class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Actions</button>
                         </div>                        
                     </div>
                 </div>          
@@ -87,10 +86,8 @@
                     <div class="col-lg-12">
                         <div class="card m-b-30">
                             <div class="card-header">
-                                <h5 class="card-title">Data Export Table</h5>
                             </div>
                             <div class="card-body">
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel & Note.</h6>
                                 <div class="table-responsive">
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
@@ -115,9 +112,50 @@
                                                     <td>{{ $creditor->created_at }}</td>
                                                     <td>
                                                         <a href="/sales/details/{{ $creditor->reference_no }}" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
-                                                        <button type="button" class="btn btn-danger"><i class="feather icon-trash-2"></i></button>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#edit-modal{{ $creditor->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
                                                     </td>
                                                 </tr>
+
+                                                {{-- MODAL --}}
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="edit-modal{{ $creditor->id }}" tabindex="-1" role="dialog" aria-labelledby="varying-modal-label" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="varying-modal-label">Paid Debt</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                                <form action="/creditors/{{ $creditor->id }}/pay" method="POST">
+                                                                    @csrf
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label for="recipient-name" class="col-form-label">Amount:</label>
+                                                                                <input style="border-color:#9794af;" name="amount_paid" type="text" class="form-control" id="recipient-name" required>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">SAVE</button>
+                                                            </div>
+
+                                                        </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{-- END MODAL --}}
+
+
                                             @endforeach
                                         </tbody>
                                     </table>

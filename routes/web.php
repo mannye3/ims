@@ -132,3 +132,4 @@ Route::get('/cash/movement', 'CashMovement\CashMovementController@index');
 
     /*** CREDITORS ***/
 Route::get('/creditors', 'Creditor\CreditorController@index');
+Route::post('/creditors/{id}/pay', 'Creditor\CreditorController@payDebt');
