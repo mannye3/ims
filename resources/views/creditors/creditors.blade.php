@@ -112,7 +112,7 @@
                                                     <td>{{ $creditor->created_at }}</td>
                                                     <td>
                                                         <a href="/sales/details/{{ $creditor->reference_no }}" type="button" class="btn btn-primary"><i class="feather icon-eye"></i></a>
-                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#edit-modal{{ $creditor->id }}" data-whatever="@fat"><i class="feather icon-trash-2"></i></button>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#edit-modal{{ $creditor->id }}" data-whatever="@fat"><i class="feather icon-gear"></i></button>
                                                     </td>
                                                 </tr>
 
